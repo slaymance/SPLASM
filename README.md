@@ -26,10 +26,6 @@ This repo is meant to be used in-browser by a target audience of beginning devel
 ## Requirements
 
 - Node 6.4.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
 
 ## Development
 
