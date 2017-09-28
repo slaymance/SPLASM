@@ -11,11 +11,4 @@ var UsersSchema = mongoose.Schema({
 
 var UsersModel = mongoose.model('UsersModel', UsersSchema);
 
-UsersModel.create({ name: 'TestUeser' }, (err) => {
-  if (err) {
-    console.error(err);
-  }
-  console.log('Saved entry!');
-});
-
 module.exports = UsersModel;
