@@ -6,7 +6,7 @@ class App extends React.Component {
   }
 
   render() {
-    return (<div>
+    return (<div className="text-center">
           App Goes Here
         </div>);
   }
