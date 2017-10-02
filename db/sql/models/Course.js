@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = require('./../index.js');
+const sequelize = require('../index.js');
 const request = require('request');
 
 const Course = sequelize.define('course', {
