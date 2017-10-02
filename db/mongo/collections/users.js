@@ -6,7 +6,9 @@ var UsersSchema = mongoose.Schema({
     index: {
       unique: true
     }
-  }
+  },
+  courses: Array,
+  interests: Array
 });
 
 var UsersModel = mongoose.model('UsersModel', UsersSchema);
