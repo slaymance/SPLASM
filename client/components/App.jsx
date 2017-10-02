@@ -1,7 +1,7 @@
 import React from 'react';
-import Profile from './profile/profile.js';
-import Courses from './courses/courses.js';
-import Social from './social/social.js';
+import Profile from './profile/Profile.jsx';
+import Courses from './courses/Courses.jsx';
+import Social from './social/Social.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -10,15 +10,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container col-md-10 col-md-offset-1">
+      <div className="container col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
         <div className="col-md-3">
           <Profile />
         </div>
         <div id="social" className="col-md-6">
-          <Social />
+          <Courses />
         </div>
         <div className="col-md-3">
-          <Courses />
+          <Social />
         </div>
       </div>
     );
