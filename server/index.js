@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const router = require('./router.js');
 const db = require('../db/mongo/index.js');
+// const request = require('request');
+const sequelize = require('../db/sql/index.js');
 
 const portNum = 3000;
 
