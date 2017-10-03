@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "wp": "webpack --w",
-    "postinstall": "webpack -p"
+    "postinstall": "webpack -p",
     "test": "mocha"
   },
   "dependencies": {

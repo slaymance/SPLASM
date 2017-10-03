@@ -1,3 +1,5 @@
+const passport = require('passport');
+
 var login = {
   post: passport.authenticate('local'),
   function(req, res) {
