@@ -8,7 +8,8 @@ var UsersSchema = mongoose.Schema({
     }
   },
   courses: Array,
-  interests: Array
+  interests: Array,
+  picture: String
 });
 
 var UsersModel = mongoose.model('UsersModel', UsersSchema);
