@@ -47,7 +47,7 @@ class App extends React.Component {
 
   fetchUser(username) {
     $.ajax({
-      url:`./users?username=${username}`,
+      url:`./users/${username}`,
       type: 'GET',
       success: (res) => {
         console.log(res);

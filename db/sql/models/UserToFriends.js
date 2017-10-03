@@ -4,7 +4,7 @@ const User = require('./User.js');
 
 const UserToFriend = sequelize.define('usertofriends', {});
 
-User.belongsToMany(User, {as: 'Friend', through: UserToFriend});
+User.belongsToMany(User, {as: 'friend', through: UserToFriend});
 
 UserToFriend.sync()
   .then(() => {
