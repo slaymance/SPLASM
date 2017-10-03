@@ -18,9 +18,9 @@ class Profile extends React.Component {
         <div className="profileItem">
           Member since: {[this.props.user.createdAt.slice(5, 10), this.props.user.createdAt.slice(0, 4)].join('-')}
         </div>
-        <div className="profileItem">
+        {/* <div className="profileItem">
           Interests: {this.props.user.interests.join(', ')}
-        </div>
+        </div> */}
         <div className="profileItem">
           Courses complete: {coursesComplete}
         </div>
