@@ -1,5 +1,6 @@
 body {
   background-color: #f3f3f3;
+  padding-top: 30px;
 }
 
 /*h2 {
@@ -7,10 +8,6 @@ body {
   text-align: center;
   padding: 10px
 }*/
-
-button {
-
-}
 
 .courselist {
   list-style: none;
