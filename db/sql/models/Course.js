@@ -33,7 +33,8 @@ Course.sync()
         });
       });
     });
-
+  })
+  .then(() => {
     request.get('https://www.udacity.com/public-api/v0/courses', (err, res, body) => {
       if (err) { throw err; }
 

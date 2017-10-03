@@ -9,6 +9,12 @@ const User = sequelize.define('user', {
   hash: Sequelize.STRING
 });
 
-User.sync();
+User.sync()
+  .then(() => {
+    console.log('successfully created user table');
+  })
+  .catch((err) => {
+    console.log('error creating user table', err);
+  })
 
 module.exports = User;
