@@ -1,16 +1,16 @@
 import React from 'react';
 
-const CourseListItem = () =>
-  <li style={{display: 'inline-block'}} >
+const CourseListItem = (props) =>
+  <li className="col-xs-12">
     <div className="col-xs-12 col-sm-9">
-      <a href="https://www.khanacademy.org/computing/computer-programming/programming">
-        <h4>Intro to JS: Drawing & Animation</h4>
+      <a href={props.course.url}>
+        <h4>{props.course.name}</h4>
       </a>
-      <p>Computer programming</p>
+      <p>{props.course.parent}</p>
     </div>
     <div className="col-sm-3 col-xs-12">
       <label>Status:</label>
-      <select className="col-xs-12">
+      <select className="col-xs-12" defaultValue={props.course.status}>
         <option>100%</option>
         <option>75%</option>
         <option>50%</option>
