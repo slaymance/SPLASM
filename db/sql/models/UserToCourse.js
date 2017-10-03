@@ -4,22 +4,11 @@ const User = require('./User.js');
 const Course = require('./Course.js');
 
 const UserToCourse = sequelize.define('usertocourse', {
-  user_id: {
-    type: Sequelize.INTEGER,
-    references: {
-      model: User,
-      key: 'id'
-    }
-  },
-  course_id: {
-    type: Sequelize.INTEGER,
-    references: {
-      model: Course,
-      key: 'id'
-    }
-  },
   status: Sequelize.STRING
 });
+
+User.belongsToMany(Course, {through: UserToCourse});
+Course.belongsToMany(User, {through: UserToCourse});
 
 UserToCourse.sync()
   .then(() => {
@@ -27,6 +16,6 @@ UserToCourse.sync()
   })
   .catch((err) => {
     console.log('error creating user to course table', err);
-  })
+  });
 
 module.exports = UserToCourse;
