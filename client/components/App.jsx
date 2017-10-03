@@ -43,6 +43,7 @@ class App extends React.Component {
       activeUser: dummyUser,
       courses: dummyCourses
     };
+    // this.fetchUser.call(this, 'username');
   }
 
   fetchUser(username) {
@@ -50,7 +51,9 @@ class App extends React.Component {
       url:`./users/${username}`,
       type: 'GET',
       success: (res) => {
-        console.log(res);
+        this.setState({
+          activeUser: JSON.parse(res)[0]
+        });
       },
       error: () => {
         console.log('error fetching user from database')
