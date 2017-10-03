@@ -1,16 +1,16 @@
 const passport = require('passport');
 
 var login = {
-  post: passport.authenticate('local'),
-  function(req, res) {
-  	// this function gets called if authentication is successful
-  	// `req.user` contains the authenticated user
-
-  	// the user should be redirected to their personal profile
-  	// something like '/users/' + req.user.username
-  	// for now this just redirects to the main index.html page
-  	res.redirect('/')
-  }
+	// the first argument specifies the strategy - local
+	// the second argument specifies the redirection paths
+	// on success we currently redirect to the main page
+	// would this change to some user specific url, or would the info just be dynamically updated for a static url?
+  post: passport.authenticate('local', {
+  	successRedirect: '/',
+  	successFlash: 'Welcome!',
+  	failureRedirect: '/login',
+  	failureFlash: true
+  });
 };
 
 module.exports = login;
