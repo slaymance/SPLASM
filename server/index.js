@@ -5,11 +5,11 @@ const db = require('../db/mongo/index.js');
 // const request = require('request');
 const sequelize = require('../db/sql/index.js');
 
-const portNum = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/../client'));
 app.use('/', router);
 
 app.get('/', (req, res) => res.send());
 
-app.listen(portNum, () => console.log(`App listening on port ${portNum}`));
+app.listen(port, () => console.log(`App listening on port ${port}`));

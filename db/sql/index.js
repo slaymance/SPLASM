@@ -1,9 +1,16 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('splasm', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
-  logging: false
-});
+const url = process.env.CLEARDB_DATABASE_URL;
+let sequelize;
+
+if (url) {
+  sequelize = new Sequelize(url, {});
+} else {
+  sequelize = new Sequelize('splasm', 'root', '', {
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: false
+  });
+}
 
 sequelize.authenticate()
   .then(() => {
