@@ -26,7 +26,6 @@ class Courses extends React.Component {
     }
 
     return (<div>
-      <h2>Courses</h2>
       <button onClick={this.toggleCoursesView.bind(this)} className="btn btn-default col-xs-12">Add course</button>
       {courselist}
       <ul style={{listStyle: 'none'}}>
