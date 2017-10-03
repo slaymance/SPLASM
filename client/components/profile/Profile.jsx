@@ -7,9 +7,9 @@ class Profile extends React.Component {
   }
 
   render() {
-    let percentComplete = 100 * (this.props.user.courses.reduce((tot, course) => {
+    let coursesComplete = this.props.user.courses.reduce((tot, course) => {
       return course.status === '100%' ? tot + 1 : tot;
-    }, 0) / this.props.user.courses.length);
+    }, 0);
 
     return (<div style={{wordWrap: 'break-word'}}>
       <img src={this.props.user.picture} className="col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1"/>
@@ -22,7 +22,7 @@ class Profile extends React.Component {
           Interests: {this.props.user.interests.join(', ')}
         </div>
         <div className="profileItem">
-          Courses complete: {percentComplete}%
+          Courses complete: {coursesComplete}
         </div>
       </div>
     </div>)
