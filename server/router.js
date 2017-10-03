@@ -4,6 +4,6 @@ var users = require('./routes/users.js');
 var login = require('./routes/login.js');
 
 router.get('/users/:username', users.get);
-router.post('/login', login.post);
+router.post('/login', login.post, (req, res) => console.log('blah'));
 
 module.exports = router;
