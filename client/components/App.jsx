@@ -10,14 +10,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
-        <div className="col-md-3">
+      <div className="container col-xs-12">
+        <div className="col-sm-3 col-xs-12">
           <Profile />
         </div>
-        <div id="social" className="col-md-6">
+        <div id="social" className="col-sm-6 col-xs-12">
           <Courses />
         </div>
-        <div className="col-md-3">
+        <div className="col-sm-3 col-xs-12">
           <Social />
         </div>
       </div>
