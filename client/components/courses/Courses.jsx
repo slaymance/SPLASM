@@ -17,12 +17,13 @@ class Courses extends React.Component {
 
   render() {
     let courselist = '';
-    if(this.state.courseView) {
+    if (this.state.courseView) {
       courselist = (<ul className="courselist col-xs-12 text-center">
         {this.props.allCourses.map((course, index) => {
           return <li key={index}>{course.name}</li>
         })}
       </ul>);
+      // only display courses that have not already been added
     }
 
     return (<div>
