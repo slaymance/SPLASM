@@ -2,10 +2,24 @@ import React from 'react';
 import Profile from './profile/Profile.jsx';
 import Courses from './courses/Courses.jsx';
 import Social from './social/Social.jsx';
+import $ from 'jQuery';
 
 class App extends React.Component {
   constructor() {
     super();
+  }
+
+  fetchUser(username) {
+    $.ajax({
+      url:`./users?username=${username}`,
+      type: 'GET',
+      success: (res) => {
+        console.log(res);
+      },
+      error: () => {
+        console.log('error fetching user from database')
+      }
+    })
   }
 
   render() {
