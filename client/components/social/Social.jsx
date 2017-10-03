@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Social = () =>
+const Social = (props) =>
   <div>
-    <h2>Social content goes here</h2>
+    <h2>{props.user.name}'s friends:</h2>
   </div>;
 
 export default Social;

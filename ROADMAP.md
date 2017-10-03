@@ -16,7 +16,7 @@
 - Set up MySQL/Sequelize in db/mysql directory
 - Populate MySQL courses database (API call to Khan Academy)
 - Set up Heroku pipelines
-- Look into passportjs
+- Look into passportjs 
 
 ## Sprint 2 (MVP) - Wed & Thurs
 
