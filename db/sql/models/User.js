@@ -15,6 +15,6 @@ User.sync()
   })
   .catch((err) => {
     console.log('error creating user table', err);
-  })
+  });
 
 module.exports = User;
