@@ -28,7 +28,7 @@ Course.sync()
               parent: parsedChild.translated_title,
               url: course.url
             }).then(() => console.log('added course to db'))
-            .catch(err => console.log('duplicate entry'));
+            .catch(err => {});
           });
         });
       });
@@ -42,14 +42,13 @@ Course.sync()
         return JSON.stringify(course).includes('computer');
       });
 
-      console.log(csCourses[0], csCourses[1]);
       csCourses.forEach((course) => {
         Course.create({
           name: course.title,
           parent: course.subtitle,
           url: course.homepage
         }).then(() => console.log('added course to db'))
-        .catch(err => console.log('duplicate entry'));
+        .catch(err => {});
       });
     });
   })

@@ -24,3 +24,6 @@ module.exports = sequelize;
 
 const Course = require('./models/Course.js');
 const Session = require('./models/Session.js');
+const User = require('./models/User.js');
+const UserToFriends = require('./models/UserToFriends.js');
+const UserToCourse = require('./models/UserToCourse.js');

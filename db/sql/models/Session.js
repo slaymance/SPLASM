@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../index.js');
 
-const Session = sequelize.define('course', {
+const Session = sequelize.define('session', {
 
 });
 
