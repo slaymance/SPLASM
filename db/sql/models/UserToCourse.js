@@ -17,7 +17,16 @@ const UserToCourse = sequelize.define('usertocourse', {
       model: Course,
       key: 'id'
     }
-  }
+  },
+  status: Sequelize.STRING
 });
 
-UserToCourse.sync();
+UserToCourse.sync()
+  .then(() => {
+    console.log('successfully created user to course table');
+  })
+  .catch((err) => {
+    console.log('error creating user to course table', err);
+  })
+
+module.exports = UserToCourse;

@@ -19,4 +19,12 @@ const UserToFriends = sequelize.define('usertofriends', {
   }
 });
 
-UserToFriends.sync();
+UserToFriends.sync()
+  .then(() => {
+    console.log('successfully created user to course table');
+  })
+  .catch((err) => {
+    console.log('error creating user to course table', err);
+  });
+
+module.exports = UserToFriends;

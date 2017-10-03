@@ -5,4 +5,12 @@ const Session = sequelize.define('session', {
 
 });
 
-Session.sync();
+Session.sync()
+  .then(() => {
+    console.log('successfully created session table');
+  })
+  .catch((err) => {
+    console.log('error creating session table', err);
+  });
+
+module.exports = Session;
