@@ -2,7 +2,7 @@ import React from 'react';
 import Profile from './profile/Profile.jsx';
 import Courses from './courses/Courses.jsx';
 import Social from './social/Social.jsx';
-import $ from 'jQuery';
+import $ from 'jquery';
 
 let dummyUser = {
   name: 'Fred',
