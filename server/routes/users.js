@@ -5,7 +5,6 @@ const Course = require('../../db/sql/models/Course.js');
 
 var users = {
   get: function(req, res) {
-    console.log(req.params);
     User.findAll({
       include: [
         { model: Course },

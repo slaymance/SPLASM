@@ -1,17 +1,15 @@
-import App from './components/App.jsx';
+import AppRoutes from './components/AppRoutes.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './styles/style.css';
-
-// start by making a get request
-// check if user has session
-// if yes, render App
-// if no, render signup
-
-console.log(window.location.pathname)
 
 if(window.location.pathname === '/login') {
   //ReactDOM.render(<Login/>, document, getElementById('root'));
 } else {
-  ReactDOM.render(<App/>, document.getElementById('root'));
+  ReactDOM.render((
+    <BrowserRouter>
+      <AppRoutes/>
+    </BrowserRouter>
+    ), document.getElementById('root'));
 }
