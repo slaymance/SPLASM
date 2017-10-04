@@ -12,7 +12,6 @@ passport.use(new LocalStrategy(
       if (!userObj) {
         return done(null, false, {message: 'Incorrect username.'});
       }
-      console.log(JSON.stringify(userObj));
       // if password does not match
       if (userObj.hash !== password) {
         console.log('password does not match');
@@ -30,10 +29,17 @@ passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+    done(null, user);
+  }).catch(error => console.error(error));
+});
+
 const login = {
   post: passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
+    failureFlash: true,
   }),
   get: (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../../client/index.html'));
