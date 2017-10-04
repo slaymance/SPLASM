@@ -7,11 +7,6 @@ passport.use(new LocalStrategy(
     User.findOne({
       where: {name: username}
     }).then ((userObj) => {
-      // err handling does not work; userObj must be the first argument
-      // if (err) {
-      //   console.log('there is an error!!!', err);
-      // }
-
       // if the user does not exist
       if (!userObj) {
         return done(null, false, {message: 'Incorrect username.'});
@@ -24,7 +19,9 @@ passport.use(new LocalStrategy(
       }
       // else user and password match
       return done(null, userObj);
-    });
+    }).catch(err) => {
+    	console.error(err);
+    };
   }
 ));
 
