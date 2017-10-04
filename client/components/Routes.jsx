@@ -7,7 +7,8 @@ import NotFound from './NotFound.jsx';
 const Routes = () => (
   <Switch>
     <Route exact path='/' component={Splash}/>
-    <Route path='/users/:username' component={App}/>
+    <Route path='/profile/users/:username' component={App}/>
+    {/* <Route path='search/users/:username' component={App}/> */}
     <Route path='*' component={NotFound}/>
   </Switch>
 );

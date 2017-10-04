@@ -4,7 +4,8 @@ var users = require('./routes/users.js');
 var login = require('./routes/login.js');
 var signup = require('./routes/signup.js');
 
-router.get('/users/api/:username', users.get);
+router.get('*/api/users', users.getAllUsers);
+router.get('*/users/api/:username', users.getUser);
 router.post('/login', login.post);
 router.get('/login', login.get);
 router.post('/signup', signup.post);

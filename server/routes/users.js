@@ -4,7 +4,7 @@ const User = require('../../db/sql/models/User.js');
 const Course = require('../../db/sql/models/Course.js');
 
 var users = {
-  get: function(req, res) {
+  getUser: (req, res) => {
     User.findAll({
       include: [
         { model: Course },
@@ -18,6 +18,17 @@ var users = {
     .catch((err) => {
       console.error('Error finding user');
     });
+  },
+  getAllUsers: (req, res) => {
+    User.findAll({
+      attributes: ['name']
+    })
+      .then((result) => {
+        res.send((JSON.stringify(result)));
+      })
+      .catch((err) => {
+        console.error('Error finding all users');
+      });
   }
 };
 
