@@ -12,10 +12,10 @@ import Login from './components/login/Login.jsx';
 
 console.log(window.location.pathname)
 
-ReactDOM.render(<Login/>, document.getElementById('root'));
-
-// if(window.location.pathname === '/login') {
-//   //ReactDOM.render(<Login/>, document, getElementById('root'));
-// } else {
-//   ReactDOM.render(<App/>, document.getElementById('root'));
-// }
+if(window.location.pathname === '/login') {
+  ReactDOM.render(<Login/>, document.getElementById('root'));
+} else if (window.location.pathname === '/signup') {
+	ReactDOM.render(<Signup/>, document.getElementById('root'));
+} else {
+  ReactDOM.render(<App/>, document.getElementById('root'));
+}
