@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
-const credentials = require('./credentials/credentials.js');
 const url = process.env.CLEARDB_DATABASE_URL;
 let sequelize;
 
 if (url) {
   sequelize = new Sequelize(url, {});
 } else {
+  const credentials = require('./credentials/credentials.js');
   sequelize = new Sequelize('splasm', credentials.username, credentials.password, {
     host: 'localhost',
     dialect: 'mysql',
