@@ -1,5 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const path = require('path');
 const User = require('../../db/sql/models/User.js');
 
 passport.use(new LocalStrategy(
@@ -33,7 +34,10 @@ const login = {
   post: passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
-  })
+  }),
+  get: (req, res, next) => {
+    res.sendFile(path.resolve(__dirname, '../../client/index.html'));
+  }
 };
 
 

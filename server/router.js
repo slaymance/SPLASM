@@ -6,6 +6,7 @@ var signup = require('./routes/signup.js');
 
 router.get('/users/api/:username', users.get);
 router.post('/login', login.post);
+router.get('/login', login.get);
 router.post('/signup', signup.post);
 
 router.get('/*', (req, res) => {
