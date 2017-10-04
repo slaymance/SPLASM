@@ -1,16 +1,23 @@
-const passport = require('passport');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
-var login = {
-  post: passport.authenticate('local'),
-  function(req, res) {
-  	// this function gets called if authentication is successful
-  	// `req.user` contains the authenticated user
-
-  	// the user should be redirected to their personal profile
-  	// something like '/users/' + req.user.username
-  	// for now this just redirects to the main index.html page
-  	res.redirect('/')
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    console.log('Passport');
+    return done(null, {id: 1234, username: 'shane'});
   }
+));
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+const login = {
+  post: passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+  })
 };
+
 
 module.exports = login;
