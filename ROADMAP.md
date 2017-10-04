@@ -16,11 +16,15 @@
 - Set up MySQL/Sequelize in db/mysql directory
 - Populate MySQL courses database (API call to Khan Academy)
 - Set up Heroku pipelines
-- Look into passportjs 
+- Look into passportjs
 
 ## Sprint 2 (MVP) - Wed & Thurs
 
-- TBD
+- Set up bcrypt to hash passwords
+- Serve user sessions
+- Integrating Express Routing with React Routing
+- Continue setting up tests
+- Set up Sign-up/Login page (as default homepage)
 
 ## Sprint 3 (MVP) - Fri, Sat, & Sun
 
