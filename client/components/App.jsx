@@ -1,4 +1,6 @@
 import React from 'react';
+import { Router, Route } from 'react-router-dom';
+import Splash from './Splash.jsx';
 import Profile from './profile/Profile.jsx';
 import Courses from './courses/Courses.jsx';
 import Social from './social/Social.jsx';
@@ -37,18 +39,21 @@ let dummyCourses = [{
 ];
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       activeUser: dummyUser,
       courses: dummyCourses
     };
-    // this.fetchUser.call(this, 'username');
+  }
+
+  componentDidMount() {
+    this.fetchUser.call(this, this.props.match.params.username);
   }
 
   fetchUser(username) {
     $.ajax({
-      url:`./users/${username}`,
+      url:`./api/${username}`,
       type: 'GET',
       success: (res) => {
         this.setState({
