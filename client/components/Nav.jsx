@@ -34,13 +34,27 @@ class AppRoutes extends React.Component {
     });
   }
 
+  logout() {
+    $.ajax({
+      url: '/logout',
+      type: 'GET',
+      success: (res) => {
+        console.log('You are now logged out.');
+      },
+      error: (err) => {
+        console.log('Logout unsuccessful.');
+        console.error(err);
+      }
+    });
+  }
+
   render() {
     return (<header className="col-xs-12">
       <nav>
         <ul>
           <li><Link to='/' replace>Home</Link></li>
           <li><Link to={'/profile/users/' + this.props.user} replace>Profile</Link></li>
-          <li>Logout</li>
+          <li><button onClick={this.logout}>Logout</button></li>
           <li>
             <input list="users" name="user" value={this.state.userVal} onChange={this.changeUserVal.bind(this)}/>
             <datalist id="users">
