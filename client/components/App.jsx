@@ -7,38 +7,6 @@ import Courses from './courses/Courses.jsx';
 import Social from './social/Social.jsx';
 import $ from 'jquery';
 
-let dummyUser = {
-  name: 'Fred',
-  courses: [{
-    name: 'Intro to JS: Drawing & Animation',
-    url: 'https://www.khanacademy.org/computing/computer-programming/programming',
-    parent: 'Computer programming',
-    status: '50%'
-  },
-  {
-    name: 'Drawing with Code',
-    url: 'https://www.khanacademy.org/computing/hour-of-code/hour-of-code-tutorial',
-    parent: 'Hour of Code',
-    status: '25%'
-  }],
-  interests: ['javascript', 'coding', 'pizza', 'artificial intelligence'],
-  picture: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-  createdAt: '2017-10-02 20:45:02'
-};
-let dummyCourses = [{
-    name: 'Intro to JS: Drawing & Animation',
-    url: 'https://www.khanacademy.org/computing/computer-programming/programming',
-    parent: 'Computer programming',
-    status: '50%'
-  },
-  {
-    name: 'Drawing with Code',
-    url: 'https://www.khanacademy.org/computing/hour-of-code/hour-of-code-tutorial',
-    parent: 'Hour of Code',
-    status: '25%'
-  }
-];
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -83,7 +51,7 @@ class App extends React.Component {
       error: () => {
         console.log('error fetching user from database')
       }
-    })
+    });
   }
 
   render() {
