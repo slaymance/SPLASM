@@ -1,4 +1,6 @@
 const User = require('../../db/sql/models/User.js');
+const bcrypt = require('bcryptjs');
+
 
 const signup = {
   post: (req, res) => {
@@ -7,9 +9,12 @@ const signup = {
   		where: {name: req.body.username}
   	}).then((existingUser) => {
   		if (!existingUser) {
+  			// hash password with bcrypt before adding to db
+  			let salt = bcrypt.genSaltSync(13);
+  			let hash = bcrypt.hashSync(req.body.password, salt);
 		    User.create({
 		      name: req.body.username,
-		      hash: req.body.password
+		      hash: hash
 		    })
 		      .then(console.log('User successfully signed up'))
 		      .catch(err => {});
