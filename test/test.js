@@ -42,7 +42,7 @@ You can use them to help test asynchronous code more easily
 describe('Mongo DB', function() {
   describe('#indexOf()', function() {
     it('contains a user table', function() {
-      var queryString = ""
+      var queryString = '';
     });
   });
 });

@@ -28,7 +28,7 @@ Course.sync()
               parent: parsedChild.translated_title,
               url: course.url
             }).then(() => console.log('added course to db'))
-            .catch(err => {});
+              .catch(err => {});
           });
         });
       });
@@ -38,7 +38,7 @@ Course.sync()
     request.get('https://www.udacity.com/public-api/v0/courses', (err, res, body) => {
       if (err) { throw err; }
 
-      let parsedBody = JSON.parse(body);;
+      let parsedBody = JSON.parse(body);
       let csCourses = parsedBody.courses.filter((course) => {
         return JSON.stringify(course).includes('computer');
       });
@@ -49,7 +49,7 @@ Course.sync()
           parent: course.subtitle,
           url: course.homepage
         }).then(() => console.log('added course to db'))
-        .catch(err => {});
+          .catch(err => {});
       });
     });
   })

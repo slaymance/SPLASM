@@ -9,6 +9,7 @@ router.get('*/users/api/:username', users.getUser);
 router.post('/login', login.post);
 router.get('/login', login.get);
 router.post('/signup', signup.post);
+router.get('/signup', signup.get);
 
 router.get('/*', (req, res) => {
   res.redirect('/');

@@ -8,16 +8,16 @@ var users = {
     User.findAll({
       include: [
         { model: Course },
-        { model: User , as: 'friend' }
+        { model: User, as: 'friend' }
       ],
       where: {name: req.params.username}
     })
-    .then((result) => {
-      res.send((JSON.stringify(result)));
-    })
-    .catch((err) => {
-      console.error('Error finding user');
-    });
+      .then((result) => {
+        res.send((JSON.stringify(result)));
+      })
+      .catch((err) => {
+        console.error('Error finding user');
+      });
   },
   getAllUsers: (req, res) => {
     User.findAll({
