@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import $ from 'jquery';
 
 class AppRoutes extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       usersList: [],
       userVal: '',
@@ -39,7 +39,7 @@ class AppRoutes extends React.Component {
       <nav>
         <ul>
           <li><Link to='/' replace>Home</Link></li>
-          <li><Link to='/profile/users/username' replace>Profile</Link></li>
+          <li><Link to={'/profile/users/' + this.props.user} replace>Profile</Link></li>
           <li>Logout</li>
           <li>
             <input list="users" name="user" value={this.state.userVal} onChange={this.changeUserVal.bind(this)}/>
