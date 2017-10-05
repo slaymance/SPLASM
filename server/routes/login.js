@@ -39,7 +39,6 @@ const login = {
   post: passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
-    failureFlash: true,
   }),
   get: (req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../../client/index.html'));
