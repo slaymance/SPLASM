@@ -31,6 +31,10 @@ class App extends React.Component {
     this.fetchUser.call(this, this.props.match.params.username);
   }
 
+  addCourse(courseId) {
+    
+  }
+
   fetchUser(username) {
     $.ajax({
       url:`./api/${username}`,
