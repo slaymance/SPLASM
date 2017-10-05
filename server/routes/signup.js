@@ -1,3 +1,4 @@
+const path = require('path');
 const User = require('../../db/sql/models/User.js');
 
 const signup = {
@@ -15,11 +16,14 @@ const signup = {
 		      .catch(err => {});
 		    res.redirect('/');
   		} else {
-  			console.log('Username already exists. Please choose another.');	
+  			console.log('Username already exists. Please choose another.');
   		}
   	}).catch(err => {
   		console.error(err);
   	});
+  },
+  get: (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../client/index.html'));
   }
 };
 
