@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const url = process.env.CLEARDB_DATABASE_URL;
+const url = process.env.JAWSDB_URL;
 let sequelize;
 
 if (url) {
