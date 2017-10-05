@@ -7,3 +7,5 @@ const logout = {
   	res.redirect('/');
   }
 };
+
+module.exports = logout;
