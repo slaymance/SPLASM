@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import Splash from './Splash.jsx';
 import Profile from './profile/Profile.jsx';
 import Courses from './courses/Courses.jsx';
@@ -42,9 +43,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeUser: dummyUser,
-      courses: dummyCourses
+      activeUser: {
+        name: '',
+        courses: [],
+        interests: [],
+        picture: '',
+        createdAt: ''
+      },
+      courses: [],
+      redirect: false
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.fetchUser.call(this, nextProps.match.params.username);
   }
 
   componentDidMount() {
@@ -56,9 +68,17 @@ class App extends React.Component {
       url:`./api/${username}`,
       type: 'GET',
       success: (res) => {
-        this.setState({
-          activeUser: JSON.parse(res)[0]
-        });
+        let parsedRes = JSON.parse(res);
+        if (parsedRes.length === 0) {
+          this.setState({
+            redirect: true
+          });
+        } else {
+          this.setState({
+            activeUser: parsedRes[0],
+            redirect: false
+          });
+        }
       },
       error: () => {
         console.log('error fetching user from database')
@@ -67,6 +87,11 @@ class App extends React.Component {
   }
 
   render() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to='/notfound'/>
+    }
+
     return (
       <div className="container col-xs-12">
         <div className="col-sm-3 col-xs-12">
