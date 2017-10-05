@@ -6,7 +6,10 @@ class AppRoutes extends React.Component {
   constructor() {
     super();
     this.state = {
-      usersList: []
+      usersList: [],
+      userVal: '',
+      found: false,
+      editable: false
     };
   }
 
@@ -25,24 +28,31 @@ class AppRoutes extends React.Component {
     });
   }
 
+  changeUserVal(event) {
+    this.setState({
+      userVal: event.target.value
+    });
+  }
+
   render() {
     return (<header className="col-xs-12">
       <nav>
         <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/profile/users/username'>Profile</Link></li>
+          <li><Link to='/' replace>Home</Link></li>
+          <li><Link to='/profile/users/username' replace>Profile</Link></li>
           <li>Logout</li>
-        </ul>
-        <div>
-          <form>
-            <input list="users" name="user"/>
+          <li>
+            <input list="users" name="user" value={this.state.userVal} onChange={this.changeUserVal.bind(this)}/>
             <datalist id="users">
               {this.state.usersList.map((username, index) => {
-                <option key={index} value={username}/>
+                return (<option key={index} value={username}/>);
               })}
             </datalist>
-          </form>
-        </div>
+          </li>
+          <li>
+            <Link replace to={'/search/users/' + this.state.userVal}><button>Search</button></Link>
+          </li>
+        </ul>
       </nav>
     </header>)
   }
