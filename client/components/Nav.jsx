@@ -65,4 +65,3 @@ class AppRoutes extends React.Component {
 }
 
 export default AppRoutes;
-// <button onClick={this.logout}>Logout</button></li>
