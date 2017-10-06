@@ -6,7 +6,7 @@ const UserToCourse = require('../../db/sql/models/UserToCourse.js');
 
 const courses = {
   post: (req, res) => {
-    let courseName = req.params.courseName.split('&#47;').join('/');
+    let courseName = req.params.courseName.replace('ASCII47', '/');
     User.findById(req.session.passport.user)
       .then(user => {
         Course.findOne({ where: { name: courseName } })
