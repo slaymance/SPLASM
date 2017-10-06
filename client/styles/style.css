@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
 body {
   background-color: #f3f3f3;
-  padding-top: 30px;
+  height: 100%
 }
 
 /*h2 {
@@ -8,6 +10,58 @@ body {
   text-align: center;
   padding: 10px
 }*/
+
+/*Navbar Styles****************************************************************/
+header {
+  height: 300px;
+  width: 101%;
+  top: 0;
+}
+
+.main-nav {
+  overflow: hidden;
+  position: relative;
+  top: -2px;
+  width: 100%;
+  height: 70%;
+  background-color: #1F6521;
+}
+
+.navbar-default .action-list > li {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-right: 70px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px 50px 30px;
+  background-color: white;
+}
+
+.container-fluid .action {
+  color: white;
+}
+
+.navbar-header {
+  float: left;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-default .navbar-brand {
+  font-size: 80px;
+  float: none;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.second-nav {
+  position: relative;
+  width: 100%;
+  height: 80%;
+}
+
+/******************************************************************************/
 
 .courselist {
   list-style: none;

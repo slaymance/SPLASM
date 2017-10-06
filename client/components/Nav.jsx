@@ -46,36 +46,38 @@ class Nav extends React.Component {
   }
 
   render() {
-    return (<header className="col-xs-12">
-      <nav className="navbar navbar-default">
+    return (<header>
+      <nav className="navbar navbar-default main-nav">
         <div className="container-fluid">
+          { !this.props.user
+            ? <ul className="nav navbar-nav navbar-right action-list">
+              <li className="action">
+                <Link to="/signup">
+                  <span className="glyphicon glyphicon-user"></span> Sign Up
+                </Link>
+              </li>
+              <li className="action">
+                <Link to="/login">
+                  <span className="glyphicon glyphicon-log-in"></span> Login
+                </Link>
+              </li>
+            </ul>
+            : <ul className="nav navbar-nav navbar-right action-list">
+              <li><Link to={'/profile/users/' +
+                this.props.user}>Profile</Link></li>
+              <li>
+                <Link to="" onClick={this.logout}>
+                  <span className="glyphicon glyphicon-log-out"></span> Logout
+                </Link>
+              </li>
+            </ul>
+          }
           <div className="navbar-header">
             <a href="/" className="navbar-brand">NodeBook</a>
           </div>
         </div>
-        { !this.props.user
-          ? <ul className="nav navbar-nav navbar-right">
-            <li>
-              <Link to="/signup">
-                <span className="glyphicon glyphicon-user"></span> Sign Up
-              </Link>
-            </li>
-            <li>
-              <Link to="/login">
-                <span className="glyphicon glyphicon-log-in"></span> Login
-              </Link>
-            </li>
-          </ul>
-          : <ul className="nav navbar-nav navbar-right">
-            <li><Link to={'/profile/users/' +
-              this.props.user}>Profile</Link></li>
-            <li>
-              <Link to="" onClick={this.logout}>
-                <span className="glyphicon glyphicon-log-out"></span> Logout
-              </Link>
-            </li>
-          </ul>
-        }
+      </nav>
+      <nav classname="navbar navbar-default second-nav">
         <ul className="nav navbar-nav navbar-right">
           <li>
             <input list="users" name="user" value={this.state.userVal} onChange={this.changeUserVal.bind(this)}/>
