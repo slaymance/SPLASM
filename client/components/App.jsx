@@ -46,7 +46,6 @@ class App extends React.Component {
       url: `./api/courses/${courseName}`,
       type: 'POST',
       success: (res) => {
-        console.log(JSON.parse(res));
         let parsedRes = JSON.parse(res);
         this.setState({
           activeUser: parsedRes[0]
