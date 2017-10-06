@@ -10,15 +10,21 @@ const edit = {
 		const field = req.body.field;
 		const change = req.body.change;
 		const userId = req.session.passport.user;
-
-		User.update(
-			{field: change},
-			{where: {id: userId}}
-		).then(result => {
-			console.log('result of update: ', result);
-			res.send(result);
-		}).catch(err => {
-			console.error('update error: ', err);
+    console.log('field: ', field);
+    console.log('change: ', change);
+	
+		User.findOne({
+			where: {id: userId}
+		}).then(match => {
+			console.log('result from findOne: ', match);
+			match.update({
+				field: change
+			}).then(result => {
+				console.log('result from update: ', result);
+				res.send(result);
+			}).catch(err => {
+				console.error(err);
+			});
 		});
 	}
 };

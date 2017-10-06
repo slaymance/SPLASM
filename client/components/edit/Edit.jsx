@@ -23,7 +23,7 @@ class Edit extends React.Component {
 				change: change
 			},
 			success: (result) => {
-				console.log('result from PUT req: ', result);
+				console.log('successful PUT request');
 			},
 			error: (err) => {
 				console.error(err);

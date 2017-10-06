@@ -20,7 +20,7 @@ router.get('/login', login.get);
 router.post('/signup', signup.post);
 router.get('/signup', signup.get);
 router.get('/logout', logout.get);
-router.put('/edit', edit.put);
+router.put('*/edit', edit.put);
 
 
 router.get('/*', (req, res) => {
