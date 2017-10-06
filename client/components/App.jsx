@@ -11,13 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeUser: {
-        name: '',
-        courses: [],
-        interests: [],
-        picture: '',
-        createdAt: ''
-      },
+      activeUser: { id: null, name: '', courses: [], interests: [], picture: '', createdAt: '' },
       courses: [],
       redirect: false
     };
@@ -31,8 +25,26 @@ class App extends React.Component {
     this.fetchUser.call(this, this.props.match.params.username);
   }
 
-  addCourse(courseId) {
-    
+  fetchAllCourses() {
+
+  }
+
+  addCourse(courseName) {
+    $.ajax({
+      url: `./api/courses/${courseName}`,
+      type: 'POST',
+      success: (res) => {
+        console.log(JSON.parse(res));
+        let parsedRes = JSON.parse(res);
+        console.log(parsedRes[0]);
+        this.setState({
+          activeUser: parsedRes[0]
+        });
+      },
+      error: () => {
+        console.log('error adding course');
+      }
+    });
   }
 
   fetchUser(username) {
@@ -70,7 +82,7 @@ class App extends React.Component {
           <Profile user={this.state.activeUser}/>
         </div>
         <div id="social" className="col-sm-6 col-xs-12">
-          <Courses user={this.state.activeUser} allCourses={this.state.courses}/>
+          <Courses user={this.state.activeUser} allCourses={this.state.courses} addCourse={this.addCourse.bind(this)}/>
         </div>
         <div className="col-sm-3 col-xs-12">
           <Social user={this.state.activeUser}/>

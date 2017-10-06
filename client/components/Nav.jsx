@@ -38,6 +38,7 @@ class AppRoutes extends React.Component {
     return (<header className="col-xs-12">
       <nav>
         <ul>
+          <li>Signed in as {this.props.user}</li>
           <li><Link to='/' replace>Home</Link></li>
           <li><Link to={'/profile/users/' + this.props.user} replace>Profile</Link></li>
           <li>
