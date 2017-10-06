@@ -10,8 +10,13 @@ class Courses extends React.Component {
     let course = event.target.value;
     if (course !== 'Add course') {
       course = course.replace('/','ASCII47');
-      this.props.addCourse(course);
+      this.props.addCourse(course, 'POST');
     }
+  }
+
+  requestToDeleteCourse(course) {
+    course = course.replace('/','ASCII47');
+    this.props.addCourse(course, 'DELETE');
   }
 
   render() {
@@ -24,7 +29,7 @@ class Courses extends React.Component {
       </select>
       <ul style={{listStyle: 'none'}}>
         {this.props.user.courses.map((course, index) => {
-          return <CourseListItem course={course} key={index}/>
+          return <CourseListItem deleteCourse={this.requestToDeleteCourse.bind(this)} edit={this.props.edit} course={course} key={index}/>
         })}
       </ul>
     </div>);
