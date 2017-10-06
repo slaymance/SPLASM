@@ -10,6 +10,7 @@ var edit = require('./routes/edit.js');
 
 router.post('*/api/courses/:courseName', courses.post);
 router.delete('*/api/courses/:courseName', courses.delete);
+router.put('*/api/courses/:courseName', courses.put);
 router.get('*/api/courses', courses.get);
 router.get('*/api/userdata', userdata.get);
 router.get('*/api/users', users.getAllUsers);

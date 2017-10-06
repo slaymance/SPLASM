@@ -11,9 +11,13 @@ var users = {
         { model: Course },
         { model: User, as: 'friend' }
       ],
-      where: {name: req.params.username}
+      where: {name: req.params.username},
+      order: sequelize.col('status') // couldn't figure out how to sort with custom function (sorted manually below)
     })
       .then((result) => {
+        result[0].courses = result[0].courses.sort((a, b) => {
+          return Number(a.usertocourse.status.slice(0, a.usertocourse.status.length - 1)) - Number(b.usertocourse.status.slice(0, b.usertocourse.status.length - 1));
+        });
         res.send((JSON.stringify(result)));
       })
       .catch((err) => {
