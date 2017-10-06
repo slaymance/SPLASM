@@ -23,10 +23,22 @@ class App extends React.Component {
 
   componentDidMount() {
     this.fetchUser.call(this, this.props.match.params.username);
+    this.fetchAllCourses.call(this);
   }
 
   fetchAllCourses() {
-
+    $.ajax({
+      url: `./api/courses`,
+      type: 'GET',
+      success: (res) => {
+        this.setState({
+          courses: JSON.parse(res)
+        });
+      },
+      error: () => {
+        console.log('error adding course');
+      }
+    });
   }
 
   addCourse(courseName) {
@@ -36,7 +48,6 @@ class App extends React.Component {
       success: (res) => {
         console.log(JSON.parse(res));
         let parsedRes = JSON.parse(res);
-        console.log(parsedRes[0]);
         this.setState({
           activeUser: parsedRes[0]
         });

@@ -29,6 +29,27 @@ const courses = {
   },
   delete: (req, res) => {
 
+  },
+  get: (req, res) => {
+    Course.findAll({
+      include: [{
+        model: User,
+        attributes: ['id'],
+      }]
+    })
+    .then(courses => {
+      return courses.filter((course) => {
+        return !(course.users.some((user) => {
+          return user.id === req.session.passport.user;
+        }));
+      });
+    })
+    .then(courses => {
+      res.send(JSON.stringify(courses));
+    })
+    .catch(err => {
+      console.log('Error getting all courses from database', err);
+    });
   }
 };
 

@@ -20,7 +20,6 @@ class Courses extends React.Component {
           return <option key={course.id}>{course.name}</option>
         })}
       </select>
-      {courselist}
       <ul style={{listStyle: 'none'}}>
         {this.props.user.courses.map((course, index) => {
           return <CourseListItem course={course} key={index}/>
