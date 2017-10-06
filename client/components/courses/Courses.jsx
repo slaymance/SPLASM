@@ -26,13 +26,18 @@ class Courses extends React.Component {
   }
 
   render() {
-    return (<div>
-      <select className="col-xs-12" onChange={this.requestToAddCourse.bind(this)}>
+    let addCourse = '';
+    if (this.props.edit) {
+      addCourse = (<select className="col-xs-12" onChange={this.requestToAddCourse.bind(this)}>
         <option>Add course</option>
         {this.props.allCourses.map((course, index) => {
           return <option key={course.id}>{course.name}</option>
         })}
-      </select>
+      </select>);
+    }
+
+    return (<div>
+      {addCourse}
       <ul style={{listStyle: 'none'}}>
         {this.props.user.courses.map((course, index) => {
           return <CourseListItem updateStatus={this.requestToChangeStatus.bind(this)} deleteCourse={this.requestToDeleteCourse.bind(this)} edit={this.props.edit} course={course} key={index}/>

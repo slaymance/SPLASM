@@ -75,6 +75,9 @@ class App extends React.Component {
             redirect: true
           });
         } else {
+          // if (parsedRes[0].picture === null) {
+          //   parsedRes[0].picture = 'images/defaultProfPic.png';
+          // }
           this.setState({
             activeUser: parsedRes[0],
             redirect: false
