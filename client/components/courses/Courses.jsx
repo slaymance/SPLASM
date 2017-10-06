@@ -35,7 +35,7 @@ class Courses extends React.Component {
       </select>
       <ul style={{listStyle: 'none'}}>
         {this.props.user.courses.map((course, index) => {
-          return <CourseListItem updateState={this.requestToChangeStatus.bind(this)} deleteCourse={this.requestToDeleteCourse.bind(this)} edit={this.props.edit} course={course} key={index}/>
+          return <CourseListItem updateStatus={this.requestToChangeStatus.bind(this)} deleteCourse={this.requestToDeleteCourse.bind(this)} edit={this.props.edit} course={course} key={index}/>
         })}
       </ul>
     </div>);

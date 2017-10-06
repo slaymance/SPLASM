@@ -9,8 +9,8 @@ class CourseListItem extends React.Component {
     this.props.deleteCourse(course);
   }
 
-  updateStatus(course) {
-    
+  updateStatus(event) {
+    this.props.updateStatus(this.props.course.name, event.target.value);
   }
 
   render() {
@@ -18,7 +18,7 @@ class CourseListItem extends React.Component {
     let button = '';
     if (this.props.edit) {
       let statuses = ['100%', '75%', '50%', '25%', '0%'];
-      status = (<select className="col-xs-12" defaultValue={this.props.course.usertocourse.status}>
+      status = (<select onChange={this.updateStatus.bind(this)} className="col-xs-12" defaultValue={this.props.course.usertocourse.status}>
         {statuses.map((status, i) => {
           return (<option key={i}>{status}</option>)
         })}
