@@ -48,10 +48,10 @@ class App extends React.Component {
     });
   }
 
-  addCourse(courseName) {
+  addCourse(courseName, type) {
     $.ajax({
       url: `./api/courses/${courseName}`,
-      type: 'POST',
+      type: type,
       success: (res) => {
         let parsedRes = JSON.parse(res);
         this.setState({
@@ -105,7 +105,7 @@ class App extends React.Component {
           <Profile user={this.state.activeUser}/>
         </div>
         <div id="social" className="col-sm-6 col-xs-12">
-          <Courses user={this.state.activeUser} allCourses={this.state.courses} addCourse={this.addCourse.bind(this)}/>
+          <Courses edit={this.state.edit} user={this.state.activeUser} allCourses={this.state.courses} addCourse={this.addCourse.bind(this)}/>
         </div>
         <div className="col-sm-3 col-xs-12">
           <Social user={this.state.activeUser}/>

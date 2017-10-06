@@ -29,7 +29,27 @@ const courses = {
       });
   },
   delete: (req, res) => {
-
+    let courseName = req.params.courseName.replace('ASCII47', '/');
+    User.findById(req.session.passport.user)
+      .then(user => {
+        Course.findOne({ where: { name: courseName } })
+          .then(course => {
+            if (!course) {
+              throw new Error();
+            } else {
+              return user.removeCourse(course);
+            }
+          })
+          .then(() => {
+            res.redirect(303, `/users/api/${user.name}`);
+          })
+          .catch(err => {
+            console.error('Error adding user/course relationship to database', err);
+          })
+      })
+      .catch(err => {
+        console.error('Error adding user/course relationship to database', err);
+      });
   },
   get: (req, res) => {
     Course.findAll({
