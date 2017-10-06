@@ -1,4 +1,5 @@
 import React from 'react';
+import Edit from '../edit/Edit.jsx';
 
 
 class Profile extends React.Component {
@@ -25,6 +26,9 @@ class Profile extends React.Component {
           Courses complete: {coursesComplete}
         </div>
       </div>
+      <Edit field="picture">
+        Add a picture here
+      </Edit>
     </div>)
   }
 }
