@@ -15,7 +15,7 @@ const edit = {
   		.then(match => {
       	console.log('result from findOne: ', match);
       	return match.update({
-          field: change
+          [field]: change
       	});
   	})
   	.then(result => {
