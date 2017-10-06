@@ -11,6 +11,7 @@ class CourseListItem extends React.Component {
 
   updateStatus(event) {
     this.props.updateStatus(this.props.course.name, event.target.value);
+    event.target.value = '0%';
   }
 
   render() {
