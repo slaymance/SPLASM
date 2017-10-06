@@ -1,5 +1,6 @@
 import React from 'react';
-const User = require('../../db/sql/models/User.js')
+import $ from 'jquery';
+// const User = require('../../db/sql/models/User.js')
 
 // when this is rendered it will look something like this:
 // <Edit field="picture">
@@ -15,14 +16,27 @@ class Edit extends React.Component {
 
 	editProf() {
 		const change = prompt(this.props.children);
-		User.update(
-			{this.props.field: change},
-			{where: {name: /*access username here*/}}
-		).then(result => {
-			console.log('result of update: ', result);
-		}).catch(err => {
-			console.error('update error: ', err);
+		$.ajax({
+			url: '/update',
+			type: 'PUT',
+			data: {
+				this.props.field: change
+			},
+			success: (result) => {
+				console.log('result from PUT req: ', result);
+			},
+			error: (err) => {
+				console.error(err);
+			}
 		});
+		// User.update(
+		// 	{this.props.field: change},
+		// 	{where: {name: /*access username here*/}}
+		// ).then(result => {
+		// 	console.log('result of update: ', result);
+		// }).catch(err => {
+		// 	console.error('update error: ', err);
+		// });
 	}
 
 	render() {
