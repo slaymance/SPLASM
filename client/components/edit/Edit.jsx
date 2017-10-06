@@ -17,7 +17,7 @@ class Edit extends React.Component {
 		const change = prompt(this.props.children);
 		User.update(
 			{this.props.field: change},
-		{where: {name: /*access user name/id here*/}}
+			{where: {name: /*access username here*/}}
 		).then(result => {
 			console.log('result of update: ', result);
 		}).catch(err => {
