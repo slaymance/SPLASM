@@ -19,6 +19,12 @@ class Courses extends React.Component {
     this.props.addCourse(course, 'DELETE');
   }
 
+  requestToChangeStatus(course, status) {
+    course = course.replace('/','ASCII47');
+    course += '?status=' + status;
+    this.props.addCourse(course, 'PUT');
+  }
+
   render() {
     return (<div>
       <select className="col-xs-12" onChange={this.requestToAddCourse.bind(this)}>
@@ -29,7 +35,7 @@ class Courses extends React.Component {
       </select>
       <ul style={{listStyle: 'none'}}>
         {this.props.user.courses.map((course, index) => {
-          return <CourseListItem deleteCourse={this.requestToDeleteCourse.bind(this)} edit={this.props.edit} course={course} key={index}/>
+          return <CourseListItem updateState={this.requestToChangeStatus.bind(this)} deleteCourse={this.requestToDeleteCourse.bind(this)} edit={this.props.edit} course={course} key={index}/>
         })}
       </ul>
     </div>);

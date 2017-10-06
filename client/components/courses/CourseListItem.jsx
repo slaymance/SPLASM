@@ -9,6 +9,10 @@ class CourseListItem extends React.Component {
     this.props.deleteCourse(course);
   }
 
+  updateStatus(course) {
+    
+  }
+
   render() {
     let status = (<div className="col-xs-12 text-center status">{this.props.course.usertocourse.status}</div>);
     let button = '';
