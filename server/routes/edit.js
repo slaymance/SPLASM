@@ -10,22 +10,21 @@ const edit = {
 		const field = req.body.field;
 		const change = req.body.change;
 		const userId = req.session.passport.user;
-    console.log('field: ', field);
-    console.log('change: ', change);
 	
-		User.findOne({
-			where: {id: userId}
-		}).then(match => {
-			console.log('result from findOne: ', match);
-			match.update({
-				field: change
-			}).then(result => {
-				console.log('result from update: ', result);
-				res.send(result);
-			}).catch(err => {
-				console.error(err);
-			});
-		});
+		User.findById(userId)
+  		.then(match => {
+      	console.log('result from findOne: ', match);
+      	return match.update({
+          field: change
+      	});
+  	})
+  	.then(result => {
+      console.log('result from update: ', result);
+      res.send(result);
+  	})
+  	.catch(err => {
+      console.error(err);
+  	});
 	}
 };
 
