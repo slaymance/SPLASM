@@ -13,13 +13,11 @@ const edit = {
 	
 		User.findById(userId)
   		.then(match => {
-      	console.log('result from findOne: ', match);
       	return match.update({
           [field]: change
       	});
   	})
   	.then(result => {
-      console.log('result from update: ', result);
       res.send(result);
   	})
   	.catch(err => {

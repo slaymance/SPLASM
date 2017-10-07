@@ -8,7 +8,7 @@ const User = sequelize.define('user', {
   },
   hash: Sequelize.STRING,
   picture: Sequelize.STRING,
-  gitHub: Sequelize.STRING,
+  github: Sequelize.STRING,
   interests: Sequelize.STRING
 });
 

@@ -12,15 +12,28 @@ class Profile extends React.Component {
       return course.status === '100%' ? tot + 1 : tot;
     }, 0);
 
-    let edit = '';
+    let editPic = '';
+    let editGithub = '';
+    let editInterests = '';
     if(this.props.edit) {
-      edit = <Edit field="picture">
+      editPic = <Edit field="picture">
         Add a picture here
       </Edit>;
+
+      editGithub = <Edit field="github">
+        Add your GitHub username
+      </Edit>
+
+      editInterests = <Edit field="interests">
+        What are your interests?
+      </Edit>
     }
 
     return (<div style={{wordWrap: 'break-word'}}>
-      <img src={this.props.user.picture} className="col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1"/>
+      <div>
+        <img src={this.props.user.picture} className="col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1"/>
+        {editPic}
+      </div>
       <div className="col-xs-12">
         <h3>{this.props.user.name}</h3>
         <div className="profileItem">
@@ -32,9 +45,14 @@ class Profile extends React.Component {
         <div className="profileItem">
           Courses complete: {coursesComplete}
         </div>
-      </div>
-      <div>
-        {edit}
+        <div className="profileItem">
+          GitHub: {this.props.user.github}
+          {editGithub}
+        </div>
+        <div className="profileItem">
+          Interests: {this.props.user.interests}
+          {editInterests}
+        </div>
       </div>
     </div>)
   }

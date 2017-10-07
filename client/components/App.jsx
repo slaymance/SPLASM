@@ -96,14 +96,8 @@ class App extends React.Component {
       return <Redirect to='/notfound'/>
     }
 
-    let edit = '';
-    if(this.state.edit) {
-      edit = 'Can edit this profile! Whoop! REPLACE THIS VALUE WITH EDIT BUTTON COMPONENT, THEN PUT {edit} ANYWHERE IN THE APP DOM COMPONENT BELOW. (If you need to render the edit button inside of profile, pass down the state property "edit" as a prop to that component and render the edit button conditionally based on that prop -- in the same way as done here)';
-    }
-
     return (
       <div className="container col-xs-12">
-        {edit}
         <div className="col-sm-3 col-xs-12">
           <Profile user={this.state.activeUser} edit={this.state.edit}/>
         </div>
