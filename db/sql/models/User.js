@@ -7,7 +7,9 @@ const User = sequelize.define('user', {
     unique: true
   },
   hash: Sequelize.STRING,
-  picture: Sequelize.STRING
+  picture: Sequelize.STRING,
+  gitHub: Sequelize.STRING,
+  interests: Sequelize.STRING
 });
 
 User.sync()
