@@ -20,13 +20,31 @@ const friends = {
 	},
 
 	post: (req, res) => {
-		// hard code current user to me. then just api it.
-		var userId = 2;
-		// add a user to current users friends list.
-		// get current username.
-		// res.send(req.session.)		UserFriends.add();
-		// userid: current
-		// 
+		//var userId = req.session.user.id;
+		var userId = 3;
+		User.findOne({where: {id: userId}})
+		.then(sessionUser => {
+			console.log('found ', sessionUser);
+			var username = req.params.username;
+			User.findOne({where: {name: username}})
+			.then(profileUser => {
+				sessionUser.addFriend(profileUser)
+				.then((res) => {
+					console.log(res);
+					res.status(201).send('ok');
+				}).catch((err) => {
+					res.send(err);
+				})
+				// if 2 way auto-friendships desired
+				// just add another line like above.
+			}).catch(err => {
+				console.error('deep err: ', err);
+				res.send('something goofed deep within');
+			})
+		}).catch(err => {
+			console.error('err', err);
+			res.send('something goofed');
+		})
 	}
 }
 
