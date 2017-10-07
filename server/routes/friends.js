@@ -20,8 +20,8 @@ const friends = {
 	},
 
 	post: (req, res) => {
-		//var userId = req.session.user.id;
-		var userId = 3;
+		var userId = req.session.passport.user;
+		// var userId = 3;
 		User.findOne({where: {id: userId}})
 		.then(sessionUser => {
 			console.log('found ', sessionUser);
