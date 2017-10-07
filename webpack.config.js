@@ -4,7 +4,8 @@ module.exports = {
   entry: './client/index.jsx',
   output: {
     path: path.resolve(__dirname, 'client/dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: path.resolve(__dirname, 'client/dist')
   },
   module: {
     rules: [
@@ -17,6 +18,12 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader'
+        ]
+      },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        use: [
+          'url-loader?name=/image/[name].[ext]'
         ]
       }
     ]
