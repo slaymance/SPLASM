@@ -1,7 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
 body {
   background-color: #f3f3f3;
-  padding-top: 30px;
+  height: 100%
 }
+
+/*h2 {
+  border: 2px solid gray;
+  text-align: center;
+  padding: 10px
+}*/
+
+/*Navbar Styles****************************************************************/
+header {
+  height: 300px;
+  width: 101%;
+  top: 0;
+}
+
+.main-nav {
+  overflow: hidden;
+  position: relative;
+  top: -2px;
+  width: 100%;
+  height: 70%;
+  background-color: #1F6521;
+}
+
+.navbar-default .action-list > li {
+  display: inline;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-right: 70px;
+  margin-left: -10px;
+  border-radius: 15px 50px 30px;
+  background-color: white;
+}
+
+.navbar-header {
+  float: left;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-default .navbar-brand {
+  font-size: 80px;
+  float: none;
+  color: white;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.stylish-input-group .input-group-addon{
+    background: white !important;
+    border: 0;
+    border-radius: 15px 50px 30px;
+    height: 50px;
+}
+.stylish-input-group .form-control{
+  font-size: 16px;
+	border-radius: 15px 50px 30px;
+	box-shadow: 0 0 0;
+	border-color: white;
+  height: 50px;
+}
+.stylish-input-group button {
+  float: left;
+  border: 0;
+  background: transparent;
+}
+
+/*Courses styles******************************************************************************/
 
 .courselist {
   list-style: none;
