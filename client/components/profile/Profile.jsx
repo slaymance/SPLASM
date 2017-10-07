@@ -7,6 +7,10 @@ class Profile extends React.Component {
     super(props);
   }
 
+  addFriend() {
+    
+  }
+
   render() {
     let coursesComplete = this.props.user.courses.reduce((tot, course) => {
       return course.status === '100%' ? tot + 1 : tot;

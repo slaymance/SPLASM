@@ -99,7 +99,7 @@ class App extends React.Component {
     return (
       <div className="container col-xs-12">
         <div className="col-sm-3 col-xs-12">
-          <Profile user={this.state.activeUser} edit={this.state.edit}/>
+          <Profile user={this.state.activeUser} isCurrentUser={this.state.edit}/>
         </div>
         <div id="social" className="col-sm-6 col-xs-12">
           <Courses edit={this.state.edit} user={this.state.activeUser} allCourses={this.state.courses} addCourse={this.addCourse.bind(this)}/>
