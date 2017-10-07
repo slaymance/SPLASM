@@ -39,7 +39,7 @@ class Profile extends React.Component {
     let editPic = '';
     let editGithub = '';
     let editInterests = '';
-    if(this.props.edit) {
+    if(this.props.isCurrentUser) {
       editPic = <Edit field="picture">
         Add a picture here
       </Edit>;
@@ -69,7 +69,6 @@ class Profile extends React.Component {
         <div className="profileItem">
           Courses complete: {coursesComplete}
         </div>
-<<<<<<< HEAD
         <div className="profileItem">
           GitHub: {this.props.user.github}
           {editGithub}
@@ -78,13 +77,11 @@ class Profile extends React.Component {
           Interests: {this.props.user.interests}
           {editInterests}
         </div>
-=======
         {!this.props.isCurrentUser &&
         (<button onClick={this.addFriend.bind(this)}>
           Add Friend
         </button>)
         }
->>>>>>> add friend button adds friends
       </div>
     </div>)
   }
