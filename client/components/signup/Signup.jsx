@@ -1,33 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-class Signup extends React.Component {
-  constructor(props) {
-  	super(props);
-  }
+const Signup = () =>
+  <div className="container login-container col-xs-4 col-xs-offset-4">
+    <div className="col-xs-6 col-xs-offset-3">
+      <form className="login-form" action="/action_page.php">
+        <div className="imgcontainer">
+          <img src="../../images/defaultProfPic.png" alt="Avatar" className="avatar"/>
+        </div>
 
-  render() {
-  	return (
-  		<div>
-  		  <h1>Welcome to Splasm!</h1>
-  		  <p>You must have an account to use our site.</p>
-  		  <p>Enter a username and password to get started.</p>
-	      <form action="/signup" method="post">
-	      	<div>
-	      	  <label>Username:</label>
-	        	<input type="text" name="username"/>
-	      	</div>
-	      	<div>
-	      		<label>Password:</label>
-	      		<input type="password" name="password"/>
-	      	</div>
-	      	<div>
-	      	  <input type="submit" value="Sign Up"/>
-	      	</div>
-	      </form>
-      </div>
-  	);
-  }
-}
+        <div>
+          <input className="username-input" type="text" placeholder="Username" required></input>
+
+          <input className="password-input" type="password" placeholder="Password" required></input>
+
+          <button className="loginbtn" type="submit">Signup</button>
+        </div>
+
+        <div>
+          <Link to ="/">
+            <button className="cancelbtn" type="button">Cancel</button>
+          </Link>
+          <span className="redir">Already a user? <Link to="/login">Login »</Link></span>
+        </div>
+      </form>
+    </div>
+  </div>;
 
 export default Signup;
-
