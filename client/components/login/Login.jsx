@@ -1,37 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-class Login extends React.Component {
-  constructor(props) {
-  	super(props);
-  }
+const Login = () =>
+  <div className="container login-container col-xs-4 col-xs-offset-4">
+    <div className="col-xs-6 col-xs-offset-3">
+      <div className="imgcontainer">
+        <img src="../../images/defaultProfPic.png" alt="Avatar" className="avatar"/>
+      </div>
 
-  render() {
-  	return (
-  		<div>
-  		  <h1>Welcome to Splasm!</h1>
-  		  <p>Sign in to view your profile.</p>
-	  		<form action="/login" method="post">
-	  		  <div>
-	  		  	<label>Username:</label>
-	  		  	<input type="text" name="username"/>
-	  		  </div>
-	  		  <div>
-	  		    <label>Password:</label>
-	  		    <input type="password" name="password"/>
-	  		  </div>
-	  		  <div>
-	  		  	<input type="submit" value="Log In"/>
-	  		  </div>
-	  		</form>
-	  		<h3>New user?</h3>
-	  		<form action="/signup" method="get">
-	  		  <div>
-	  		    <input type="submit" value="Sign Up"/>
-	  		  </div>
-	  		</form>
-  		</div>
-  	);
-  }
-}
+      <form className="login-form" action="/login" method="post">
+        <input className="username-input" type="text" placeholder="Username" name="username" required></input>
+
+        <input className="password-input" type="password" name="password" placeholder="Password" required></input>
+
+        <button className="loginbtn" type="submit">Login</button>
+      </form>
+
+      <div>
+        <Link to ="/">
+          <button className="cancelbtn" type="button">Cancel</button>
+        </Link>
+        <span className="redir">New to nodebook? <Link to="/signup">Sign up »</Link></span>
+      </div>
+    </div>
+  </div>;
 
 export default Login;

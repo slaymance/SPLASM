@@ -70,7 +70,7 @@ header {
   background: transparent;
 }
 
-/******************************************************************************/
+/*Courses styles******************************************************************************/
 
 .courselist {
   list-style: none;
@@ -94,3 +94,65 @@ header {
 select {
   -webkit-appearance: none;
 }
+
+/*Login and Signup Styles******************************************************/
+
+.username-input, .password-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.loginbtn, .cancelbtn {
+    background-color: #53900F;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.loginbtn:hover, .cancelbtn:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #af4f48;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.login-container {
+    padding: 16px;
+}
+
+span.redir {
+    float: right;
+    padding-top: 16px;
+}
+
+@media screen and (max-width: 300px) {
+    span.redir {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+/*****************************************************************************/
