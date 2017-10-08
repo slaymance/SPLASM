@@ -93,42 +93,6 @@ class Nav extends React.Component {
             <a href="/" className="navbar-brand">nodebook</a>
           </div>
         </div>
-        { !this.props.user
-          ? <ul className="nav navbar-nav navbar-right">
-            <li>
-              <Link to="/signup">
-                <span className="glyphicon glyphicon-user"></span> Sign Up
-              </Link>
-            </li>
-            <li>
-              <Link to="/login">
-                <span className="glyphicon glyphicon-log-in"></span> Login
-              </Link>
-            </li>
-          </ul>
-          : <ul className="nav navbar-nav navbar-right">
-            <li><Link to={'/profile/users/' +
-              this.props.user}>Profile</Link></li>
-            <li>
-              <Link to="" onClick={this.logout}>
-                <span className="glyphicon glyphicon-log-out"></span> Logout
-              </Link>
-            </li>
-          </ul>
-        }
-        <ul className="nav navbar-nav navbar-right">
-          <li>
-            <input list="users" name="user" value={this.state.userVal} onChange={this.changeUserVal.bind(this)}/>
-            <datalist id="users">
-              {this.state.usersList.map((username, index) => {
-                return (<option key={index} value={username}/>);
-              })}
-            </datalist>
-          </li>
-          <li>
-            <Link replace to={'/search/users/' + this.state.userVal}><button>Search</button></Link>
-          </li>
-        </ul>
       </nav>
       <datalist id="users">
         {this.state.usersList.map((username, index) => {
