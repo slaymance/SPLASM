@@ -27,15 +27,18 @@ class CourseListItem extends React.Component {
       button = <button onClick={this.deleteCourse.bind(this, this.props.course.name)}>Remove Course</button>;
     }
 
-    return (<li className="col-xs-12">
-      <div className="col-xs-12 col-sm-9">
+    return (<li className="col-xs-12 course">
+      <div className="col-sm-1 col-xs-12 thumbnail">
+        {this.props.course.name[0]}
+      </div>
+      <div className="col-xs-12 col-sm-8">
         <a href={this.props.course.url}>
           <h4>{this.props.course.name}</h4>
         </a>
         <p>{this.props.course.parent}</p>
         {button}
       </div>
-      <div className="col-sm-3 col-xs-12">
+      <div className="col-sm-3 col-xs-12 status">
         <label>Status:</label>
         {status}
       </div>
