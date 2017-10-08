@@ -33,7 +33,7 @@ class Profile extends React.Component {
 
   render() {
     let coursesComplete = this.props.user.courses.reduce((tot, course) => {
-      return course.status === '100%' ? tot + 1 : tot;
+      return course.usertocourse.status === '100%' ? tot + 1 : tot;
     }, 0);
 
     let editPic = '';
