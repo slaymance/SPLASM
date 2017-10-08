@@ -1,11 +1,35 @@
 import React from 'react';
 import Edit from '../edit/Edit.jsx';
-
+import $ from 'jquery';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
+    // how is active user being bound?
   }
+
+  addFriend() {
+    var username = this.props.user.name
+    $.ajax({
+      url: `api/addfriend/${username}`,
+      type: 'POST',
+      success: (res) => {
+        console.log('added friend');
+        // set friend_status to 'Friends.'
+        // refactor to 'friend request sent'
+      },
+      error: () => {
+        // log error.
+      }
+    })
+  }
+
+  // isFriend() {
+  //   var status = false;
+  //   // check through current users friends list.
+  //   // check if active user is in it.
+  //   return status;
+  // }
 
   render() {
     let coursesComplete = this.props.user.courses.reduce((tot, course) => {
@@ -15,7 +39,7 @@ class Profile extends React.Component {
     let editPic = '';
     let editGithub = '';
     let editInterests = '';
-    if(this.props.edit) {
+    if(this.props.isCurrentUser) {
       editPic = <Edit field="picture">
         Add a picture here
       </Edit>;
@@ -53,6 +77,11 @@ class Profile extends React.Component {
           Interests: {this.props.user.interests}
           {editInterests}
         </div>
+        {!this.props.isCurrentUser &&
+        (<button onClick={this.addFriend.bind(this)}>
+          Add Friend
+        </button>)
+        }
       </div>
     </div>)
   }

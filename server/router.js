@@ -7,6 +7,7 @@ var signup = require('./routes/signup.js');
 var userdata = require('./routes/userdata.js');
 var courses = require('./routes/courses.js');
 var edit = require('./routes/edit.js');
+var friends = require('./routes/friends.js');
 
 router.post('*/api/courses/:courseName', courses.post);
 router.delete('*/api/courses/:courseName', courses.delete);
@@ -15,13 +16,13 @@ router.get('*/api/courses', courses.get);
 router.get('*/api/userdata', userdata.get);
 router.get('*/api/users', users.getAllUsers);
 router.get('*/users/api/:username', users.getUser);
+router.post('*/users/api/addfriend/:username/', friends.post);
 router.post('/login', login.post);
 router.get('/login', login.get);
 router.post('/signup', signup.post);
 router.get('/signup', signup.get);
 router.get('/logout', logout.get);
 router.put('*/edit', edit.put);
-
 
 router.get('/*', (req, res) => {
   res.redirect('/');

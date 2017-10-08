@@ -9,7 +9,7 @@ import NotFound from './NotFound.jsx';
 const Routes = (props) => (
   <Switch>
     <Route exact path='/' component={Splash}/>
-    <Route path='/profile/users/:username' component={App}/>
+    <Route path='/profile/users/:username' component={App} signedIn={props.signedIn}/>
     <Route path='/search/users/:username' component={App}/>
     <Route path='/signup' component={Signup}/>
     <Route path='/login' component={Login}/>
