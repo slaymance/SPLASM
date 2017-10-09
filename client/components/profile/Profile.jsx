@@ -56,7 +56,7 @@ class Profile extends React.Component {
     }
 
     return (<div style={{wordWrap: 'break-word'}} className="profile">
-      {!this.props.isCurrentUser &&
+      {this.props.signedIn && !this.props.isCurrentUser &&
       (<button className="col-xs-10 col-xs-offset-1 addFriend" onClick={this.addFriend.bind(this)}>
         Add Friend
       </button>)
