@@ -9,6 +9,9 @@ Platform for beginner developers to track course progress and connect with other
   - Shane Laymance
   - Shwetha Patrachari
 
+## Deployed App
+https://splasm.herokuapp.com/
+
 ## Table of Contents
 
 1. [Usage](#Usage)
