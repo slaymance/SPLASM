@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import icon from '../../images/defaultProfPic.png';
 
 const Login = () =>
   <div className="container login-container col-xs-4 col-xs-offset-4">
     <div className="col-xs-6 col-xs-offset-3">
       <div className="imgcontainer">
-        <img src="../../images/defaultProfPic.png" alt="Avatar" className="avatar"/>
+        <img src={icon} alt="Avatar" className="avatar"/>
       </div>
 
       <form className="login-form" action="/login" method="post">
