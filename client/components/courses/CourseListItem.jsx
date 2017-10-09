@@ -14,7 +14,7 @@ class CourseListItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.course.usertocourse.status !== this.props.course.usertocourse.status) {
+    if(this.props.edit && !!(document.getElementById('course' + nextProps.course.id)) && nextProps.course.usertocourse.status !== this.props.course.usertocourse.status) {
         document.getElementById('course' + nextProps.course.id).value = nextProps.course.usertocourse.status;
     }
   }
@@ -43,7 +43,7 @@ class CourseListItem extends React.Component {
         <p>{this.props.course.parent}</p>
         {button}
       </div>
-      <div className="col-sm-3 col-xs-12 status text-center">
+      <div className="col-sm-3 col-xs-12 status text-center" style={{padding: 0}}>
         <label>Status:</label>
         {status}
       </div>

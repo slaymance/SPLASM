@@ -73,6 +73,7 @@ header {
 /*Courses styles******************************************************************************/
 select {
   -webkit-appearance: none;
+  text-align-last: center;
 }
 
 .courselist {
@@ -80,6 +81,7 @@ select {
   padding: 40px;
   border-radius: 15px;
   background: #1F6521;
+  border: 1px solid #1F6521;
 }
 
 .addCourse {
@@ -92,7 +94,6 @@ select {
   border-radius: 10px;
   background: #53900F;
   color: white;
-  text-align-last: center;
 }
 
 .courselist li {
@@ -147,6 +148,10 @@ select {
   background: #e0bb28;
 }
 
+.courselist li button:hover {
+  background: #a4a71e;
+}
+
 .status label {
   font-size:16px;
   font-family: 'PT Sans', sans-serif;
@@ -155,13 +160,34 @@ select {
   color: #e0bb28;
 }
 
+@media (max-width: 1120px) {
+  .status {
+    width: 40%;
+    margin-left:60%;
+    text-align: right;
+    margin-top: 10px;
+  }
+}
+
 @media (max-width: 770px) {
+  .courselist li {
+    padding: 10px 5px;
+    margin-bottom: 20px;
+  }
+  .courselist li h4 {
+    margin-top: 0;
+  }
+  .courselist {
+    padding: 20px;
+  }
   .addCourse {
     margin: 30px 0 20px;
   }
   .status {
     text-align: right;
     margin-top: 10px;
+    width: 100%;
+    margin-left: 0;
   }
   .thumbnail {
     margin-top: 0;
@@ -263,15 +289,80 @@ span.redir {
 }
 
 .profile img {
-  border-radius: 20px;
+  border-radius: 10%;
 }
 
 .profile h3 {
+  margin: 15px 0;
+  padding: 15px 0;
+  border-top: 1px solid #a4a71e;
+  border-bottom: 1px solid #a4a71e;
+}
+
+.profile h3, .friends h2 {
   font-family: 'PT Sans', sans-serif;
   font-size: 30px;
   color: #1F6521;
 }
-/*Friends Component Style******************************************************/
 
+.profileItem {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  color: #53900f;
+}
+
+.profileItem span {
+  font-size: 20px;
+  color: #1f2605;
+}
+
+.profileItem {
+  padding-bottom: 7px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e0bb28;
+}
+
+.profileItem:last-child {
+  border-bottom: none;
+}
+
+.profile button {
+  background: #53900f;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.profile button:hover {
+  background: #1F6521;
+}
+
+.profile .addFriend {
+  padding: 10px;
+}
+
+.profile .edit {
+  padding: 5px 10px;
+}
+
+/*Friends Component Style******************************************************/
+.friends ul {
+  list-style: none;
+}
+
+.friends ul li {
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  border: none;
+  background: #e0bb28;
+  word-wrap: break-word;
+}
+
+.friends ul li:hover {
+  background: #a4a71e;
+}
 
 /*****************************************************************************/

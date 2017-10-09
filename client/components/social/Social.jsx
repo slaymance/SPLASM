@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import { Link } from 'react-router-dom';
 
 class Social extends React.Component {
 
@@ -14,12 +15,14 @@ class Social extends React.Component {
 	}
 	render() {
 		return (
-			<div className="friends">
-	    	<h2>{this.props.user.name}'s friends:</h2>
-	    	<ul>
+			<div className="friends col-xs-12">
+	    	<h2 className="col-xs-12 text-center">{this.props.user.name}'s friends:</h2>
+	    	<ul className="col-xs-12 text-center">
 	    		{this.state.friends &&
 		    	this.state.friends.map(friend => {
-		    		return (<li key={friend.id}> {friend.name}</li>);
+		    		return (<Link replace to={'/search/users/' + friend.name} key={friend.id}>
+							<li className="col-xs-12"> {friend.name}</li>
+						</Link>);
 		    	})}
 	    	</ul>
 	  	</div>
