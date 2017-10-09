@@ -235,6 +235,11 @@ img.avatar {
     border-radius: 50%;
 }
 
+img.signup-avatar {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
 .login-container {
     padding: 16px;
 }
