@@ -8,7 +8,7 @@ body {
 /*Navbar Styles****************************************************************/
 header {
   height: 300px;
-  width: 101%;
+  width: 100%;
   top: 0;
 }
 
@@ -17,14 +17,15 @@ header {
   position: relative;
   top: -2px;
   width: 100%;
-  height: 70%;
+  height: 45%;
   background-color: #1F6521;
 }
 
 .navbar-default .action-list > li {
   display: inline;
   font-size: 16px;
-  margin-top: 20px;
+  margin-top: -70px;
+  margin-bottom: 50px;
   margin-right: 70px;
   margin-left: -10px;
   border-radius: 15px 50px 30px;
@@ -33,16 +34,27 @@ header {
 
 .navbar-header {
   float: left;
+  margin-top: 30px;
   padding: 12px;
   text-align: center;
   width: 100%;
 }
 
+.navbar-header img {
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
 .navbar-default .navbar-brand {
-  font-size: 80px;
+  font-size: 60px;
   float: none;
   color: white;
   font-family: 'PT Sans', sans-serif;
+  position: relative;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: white;
 }
 
 .stylish-input-group .input-group-addon{

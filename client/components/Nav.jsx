@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
+import icon from '../images/nodebook_small_white.png';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -48,7 +49,9 @@ class Nav extends React.Component {
   render() {
     return (<header>
       <nav className="navbar navbar-default main-nav">
-        <div className="container-fluid">
+        <div className="container-fluid navbar-header">
+          <img src={icon}/>
+          <a href="/" className="navbar-brand">nodebook</a>
           <ul className="nav navbar-nav action-list">
             <li className="container col-xs-2">
               <div className="input-group stylish-input-group">
@@ -88,9 +91,6 @@ class Nav extends React.Component {
               </div>
             }
           </ul>
-          <div className="navbar-header">
-            <a href="/" className="navbar-brand">nodebook</a>
-          </div>
         </div>
       </nav>
       <datalist id="users">
