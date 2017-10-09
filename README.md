@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ![alt text](https://github.com/SPLASM/SPLASM/blob/master/client/images/nodebook_small_mono.png?raw=true "nodebook logo") nodebook
 
 A platform for beginner developers to track course progress and connect with other beginning developers.
