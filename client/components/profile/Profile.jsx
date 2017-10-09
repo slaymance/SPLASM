@@ -68,17 +68,29 @@ class Profile extends React.Component {
       <div className="col-xs-12">
         <h3 className="text-center">{this.props.user.name}</h3>
         <div className="profileItem col-xs-12 text-center">
-          <span className="col-xs-12">Member since:</span> {[this.props.user.createdAt.slice(5, 10), this.props.user.createdAt.slice(0, 4)].join('-')}
+          <span className="col-xs-12">Member since:</span>
+          <div className="col-xs-12">
+            {[this.props.user.createdAt.slice(5, 10), this.props.user.createdAt.slice(0, 4)].join('-')}
+          </div>
         </div>
         <div className="profileItem col-xs-12 text-center">
-          <span className="col-xs-12">Courses complete:</span> {coursesComplete}
+          <span className="col-xs-12">Courses complete:</span>
+          <div className="col-xs-12">
+            {coursesComplete}
+          </div>
         </div>
         <div className="profileItem col-xs-12 text-center">
-          <span className="col-xs-12">GitHub:</span> {this.props.user.github}
+          <span className="col-xs-12">GitHub:</span>
+          <div className="col-xs-12">
+            {this.props.user.github}
+          </div>
           {editGithub}
         </div>
         <div className="profileItem col-xs-12 text-center">
-          <span className="col-xs-12">Interests:</span> {this.props.user.interests}
+          <span className="col-xs-12">Interests:</span>
+          <div className="col-xs-12">
+            {this.props.user.interests}
+          </div>
           {editInterests}
         </div>
       </div>
