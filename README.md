@@ -1,6 +1,6 @@
 # NodeBook
 
-Platform for beginner developers to track course progress and connect with other beginning developers.
+A platform for beginner developers to track course progress and connect with other beginning developers.
 
 ## Team
 
