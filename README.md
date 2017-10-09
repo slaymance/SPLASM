@@ -57,10 +57,10 @@ npm install
 - bcrypt
   - bcrypt hashes passwords which are stored
   - For more information: https://www.npmjs.com/package/bcrypt-nodejs
-- Sequelize
 
 #### Database Management
 - MySQL
+- Sequelize
 
 #### Testing
 - Mocha
