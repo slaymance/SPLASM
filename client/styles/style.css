@@ -239,16 +239,11 @@ select {
 }
 
 .imgcontainer img {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
-img.avatar {
-    border-radius: 50%;
-}
-
-img.signup-avatar {
-  width: 50%;
-  margin-bottom: 20px;
+.imgcontainer .avatar {
+  border-radius: 100%;
 }
 
 .login-container {

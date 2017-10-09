@@ -6,7 +6,7 @@ const Signup = () =>
   <div className="container login-container col-sm-6 col-sm-offset-3 col-xs-12 col-xs-offset-0">
     <div className="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2">
       <div className="imgcontainer">
-        <img src={icon} alt="Avatar" className="signup-avatar avatar col-sm-10 col-sm-offset-1 col-xs-6 col-xs-offset-3"/>
+        <img src={icon} alt="Nodebook Logo" className="col-sm-10 col-sm-offset-1 col-xs-6 col-xs-offset-3"/>
       </div>
       <form className="login-form" action="/signup" method="post">
         <input className="username-input" type="text" name="username" placeholder="Username" required></input>

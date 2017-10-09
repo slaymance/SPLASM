@@ -6,7 +6,7 @@ const Login = () =>
   <div className="container login-container col-sm-6 col-sm-offset-3 col-xs-12 col-xs-offset-0">
     <div className="col-xs-12 col-xs-offset-0 col-sm-8 col-sm-offset-2">
       <div className="imgcontainer">
-        <img src={icon} alt="Avatar" className="avatar avatar col-sm-10 col-sm-offset-1 col-xs-6 col-xs-offset-3"/>
+        <img src={icon} alt="Avatar" className="avatar col-sm-10 col-sm-offset-1 col-xs-6 col-xs-offset-3"/>
       </div>
 
       <form className="login-form" action="/login" method="post">
