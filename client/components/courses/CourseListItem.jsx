@@ -3,6 +3,7 @@ import React from 'react';
 class CourseListItem extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   deleteCourse(course) {
@@ -11,7 +12,12 @@ class CourseListItem extends React.Component {
 
   updateStatus(event) {
     this.props.updateStatus(this.props.course.name, event.target.value);
-    event.target.value = '0%';
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.course.usertocourse.status !== this.props.course.usertocourse.status) {
+        document.getElementById('course' + nextProps.course.id).value = nextProps.course.usertocourse.status;
+    }
   }
 
   render() {
@@ -19,15 +25,15 @@ class CourseListItem extends React.Component {
     let button = '';
     if (this.props.edit) {
       let statuses = ['100%', '75%', '50%', '25%', '0%'];
-      status = (<select onChange={this.updateStatus.bind(this)} className="col-xs-12" defaultValue={this.props.course.usertocourse.status}>
+      status = (<select onChange={this.updateStatus.bind(this)} className="col-xs-12" value={this.props.course.usertocourse.status}>
         {statuses.map((status, i) => {
-          return (<option key={i}>{status}</option>)
+          return (<option key={i} value={status}>{status}</option>)
         })}
       </select>);
       button = <button onClick={this.deleteCourse.bind(this, this.props.course.name)}>Remove Course</button>;
     }
 
-    return (<li className="col-xs-12 course">
+    return (<li id={'course' + this.props.course.id} className="col-xs-12 course">
       <div className="col-sm-1 col-xs-12 thumbnail">
         {this.props.course.name[0]}
       </div>
