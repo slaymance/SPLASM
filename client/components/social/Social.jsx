@@ -13,11 +13,11 @@ class Social extends React.Component {
     this.setState({friends: nextProps.user.friend});
 	}
 	render() {
-		return ( 
-			<div>
+		return (
+			<div className="friends">
 	    	<h2>{this.props.user.name}'s friends:</h2>
 	    	<ul>
-	    		{this.state.friends && 
+	    		{this.state.friends &&
 		    	this.state.friends.map(friend => {
 		    		return (<li key={friend.id}> {friend.name}</li>);
 		    	})}

@@ -2,7 +2,7 @@
 
 body {
   background-color: #f3f3f3;
-  height: 100%
+  height: 100%;
 }
 
 /*h2 {
@@ -71,40 +71,55 @@ header {
 }
 
 /*Courses styles******************************************************************************/
+select {
+  -webkit-appearance: none;
+}
 
 .courselist {
   list-style: none;
-  padding: 0;
-  position: absolute;
-  margin-top: 35px;
-  background: white;
-  z-index: 5;
+  padding: 40px;
+  border-radius: 15px;
+  background: #1F6521;
+}
+
+.addCourse {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 15px;
+  font-size: 20px;
+  text-transform: uppercase;
+  /*border: 1px solid #1F6521;*/
+  border-radius: 10px;
+  background: #53900F;
+  color: white;
+  text-align-last: center;
 }
 
 .courselist li {
-  margin: 0;
-  padding:10px 0;
-  border-top: 1px solid gray;
+  margin-bottom: 30px;
+  padding:15px;
+  border-radius: 10px;
+  background: white;
+  border-bottom: 1px solid #a4a71e;
 }
 
-.courselist li:first-child {
-  border-top: none !important;
+.courselist li a, .courselist li h4 {
+  color: #a4a71e;
 }
 
-select {
-  -webkit-appearance: none;
+.courselist li p {
+  color: #1f2605;
 }
 
 .thumbnail {
   background-color: #1F6521;
   color: white;
   width: 31px;
-  border-radius: 15px;
+  border-radius: 100%;
   border-color: #777;
   border-width: 1px;
   text-align: center;
-  margin-top: 5px;
-
+  margin-top: 15px;
 }
 
 .status {
@@ -113,6 +128,44 @@ select {
 
 .course {
   margin-bottom: 20px;
+}
+
+.status select, .status div {
+  background: #53900F;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.courselist li button {
+  font-family: 'PT Sans', sans-serif;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  border: none;
+  background: #e0bb28;
+}
+
+.status label {
+  font-size:16px;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #e0bb28;
+}
+
+@media (max-width: 770px) {
+  .addCourse {
+    margin: 30px 0 20px;
+  }
+  .status {
+    text-align: right;
+    margin-top: 10px;
+  }
+  .thumbnail {
+    margin-top: 0;
+  }
 }
 
 /*Login and Signup Styles******************************************************/
@@ -174,5 +227,51 @@ span.redir {
         width: 100%;
     }
 }
+
+/*Not Found Styles*************************************************************/
+.notFoundText {
+  padding-top: 10%;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.notFoundText h1 {
+  padding: 20px;
+  font-size: 50px;
+  color: white;
+  background: #53900F;
+  border-radius: 10px;
+}
+
+.notFoundText h2 {
+  color: #e0bb28;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+/*Profile Page Styles**********************************************************/
+.courselist, .friends, .profile {
+  min-height: 300px;
+  max-height: 800px;
+  overflow-y: scroll;
+}
+
+.friends, .profile {
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid #1F6521;
+  background: white;
+}
+
+.profile img {
+  border-radius: 20px;
+}
+
+.profile h3 {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 30px;
+  color: #1F6521;
+}
+/*Friends Component Style******************************************************/
+
 
 /*****************************************************************************/

@@ -53,7 +53,12 @@ class Profile extends React.Component {
       </Edit>
     }
 
-    return (<div style={{wordWrap: 'break-word'}}>
+    return (<div style={{wordWrap: 'break-word'}} className="profile">
+      {!this.props.isCurrentUser &&
+      (<button onClick={this.addFriend.bind(this)}>
+        Add Friend
+      </button>)
+      }
       <div>
         <img src={this.props.user.picture} className="col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1"/>
         {editPic}
@@ -63,9 +68,6 @@ class Profile extends React.Component {
         <div className="profileItem">
           Member since: {[this.props.user.createdAt.slice(5, 10), this.props.user.createdAt.slice(0, 4)].join('-')}
         </div>
-        {/* <div className="profileItem">
-          Interests: {this.props.user.interests.join(', ')}
-        </div> */}
         <div className="profileItem">
           Courses complete: {coursesComplete}
         </div>
@@ -77,11 +79,6 @@ class Profile extends React.Component {
           Interests: {this.props.user.interests}
           {editInterests}
         </div>
-        {!this.props.isCurrentUser &&
-        (<button onClick={this.addFriend.bind(this)}>
-          Add Friend
-        </button>)
-        }
       </div>
     </div>)
   }
