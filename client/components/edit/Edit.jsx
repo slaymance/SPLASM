@@ -34,7 +34,7 @@ class Edit extends React.Component {
 	render() {
 		return (
 			<div>
-			  <button type="button" onClick={this.editProf}>Edit</button>
+			  <button className="edit" type="button" onClick={this.editProf}>Edit</button>
 			</div>
 		);
 	}
