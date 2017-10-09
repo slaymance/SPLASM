@@ -329,6 +329,45 @@ span.redir {
     -ms-transform: rotate(360deg);
   }
 }
+
+@media (max-width: 820px) {
+  .rotate-circle {
+    height: 500px;
+    width: 500px;
+  }
+  .tree {
+    height: 450px;
+    width: auto;
+    padding-left: 150px;
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 520px) {
+  .rotate-circle {
+    height: 400px;
+    width: 400px;
+  }
+  .tree {
+    height: 350px;
+    width: auto;
+    padding-left: 125px;
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 410px) {
+  .rotate-circle {
+    height: 300px;
+    width: 300px;
+  }
+  .tree {
+    height: 250px;
+    width: auto;
+    padding-left: 100px;
+    padding-top: 60px;
+  }
+}
 /******************************************************************************/
 
 /*Not Found Styles*************************************************************/
