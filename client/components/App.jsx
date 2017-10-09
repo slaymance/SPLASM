@@ -6,6 +6,7 @@ import Profile from './profile/Profile.jsx';
 import Courses from './courses/Courses.jsx';
 import Social from './social/Social.jsx';
 import $ from 'jquery';
+import defaultProfPic from '../images/defaultProfPic.png';
 
 class App extends React.Component {
   constructor(props) {
@@ -75,9 +76,9 @@ class App extends React.Component {
             redirect: true
           });
         } else {
-          // if (parsedRes[0].picture === null) {
-          //   parsedRes[0].picture = 'images/defaultProfPic.png';
-          // }
+          if (parsedRes[0].picture === null) {
+            parsedRes[0].picture = defaultProfPic;
+          }
           this.setState({
             activeUser: parsedRes[0],
             redirect: false
