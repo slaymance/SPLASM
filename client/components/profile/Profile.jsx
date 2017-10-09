@@ -41,16 +41,16 @@ class Profile extends React.Component {
     let editInterests = '';
     if(this.props.isCurrentUser) {
       editPic = <div className="col-xs-3 col-xs-offset-1">
-        <Edit field="picture">
+        <Edit editProfileItem={this.props.editProfileItem} field="picture">
           Add a picture here
         </Edit>
       </div>;
 
-      editGithub = <Edit field="github">
+      editGithub = <Edit editProfileItem={this.props.editProfileItem} field="github">
         Add your GitHub username
       </Edit>
 
-      editInterests = <Edit field="interests">
+      editInterests = <Edit editProfileItem={this.props.editProfileItem} field="interests">
         What are your interests?
       </Edit>
     }
