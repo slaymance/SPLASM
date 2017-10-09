@@ -76,7 +76,7 @@ npm install
 
 #### Back-end
 - Express
-  - Express routing handles authorization-related redirectsg
+  - Express routing handles authorization-related redirects
 - Passport
   - Passport handles authorization of users on login
   - Passport also handles all session management
