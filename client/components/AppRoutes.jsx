@@ -16,7 +16,6 @@ class AppRoutes extends React.Component {
       url:'./api/userdata',
       type: 'GET',
       success: (res) => {
-        console.log('user data', res);
         this.setState({
           user: res
         });
@@ -31,7 +30,7 @@ class AppRoutes extends React.Component {
     return (
       <div>
         <Nav user={this.state.user}/>
-        <Routes signedIn={this.state.user}/>
+        <Routes/>
       </div>
     )
   }
