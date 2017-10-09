@@ -1,4 +1,4 @@
-# [Product Name TBD]
+# NodeBook
 
 Platform for beginner developers to track course progress and connect with other beginning developers.
 
@@ -25,7 +25,7 @@ This repo is meant to be used in-browser by a target audience of beginning devel
 
 ## Requirements
 
-- Node 6.4.x
+- Node 8.3.0
 
 ## Development
 
@@ -34,10 +34,38 @@ This repo is meant to be used in-browser by a target audience of beginning devel
 From within the root directory:
 
 ```sh
-npm install -g bower
 npm install
-bower install
 ```
+
+### Tech Stack
+
+#### Front-end
+- React
+- React Routers
+  - Dynamic URL routing is handled using React Routers
+  - For example, a user's username is appended to the url address when navigating to their profile
+  - For more information: https://reacttraining.com/react-router/web/
+- Bootstrap
+- Webpack
+
+#### Back-end
+- Express
+- Passport
+  - Passport handles authorization of users on login
+  - Passport also handles all session management
+  - For more information: http://passportjs.org/
+- bcrypt
+  - bcrypt hashes passwords which are stored
+  - For more information: https://www.npmjs.com/package/bcrypt-nodejs
+- Sequelize
+
+#### Database Management
+- MySQL
+
+#### Testing
+- Mocha
+- Chai
+
 ### Roadmap
 
 View the project roadmap [here](ROADMAP.md)
