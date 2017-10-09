@@ -18,7 +18,7 @@ You can use them to help test asynchronous code more easily
 
 
 /*
-	shortly-express test setup: 
+	shortly-express test setup:
 		beforeEach test:
 			connect to DB.
 			clear DB tables.
@@ -27,7 +27,7 @@ You can use them to help test asynchronous code more easily
 				how does it know when it's done?
 				Answer: done passed into BeforeEach function is called
 				as callback to app.listen.
-		Database Schema Tests: 
+		Database Schema Tests:
 			test that tables exist.
 			test for correct columns
 			test insertion and retrieval of tables.
@@ -39,10 +39,3 @@ You can use them to help test asynchronous code more easily
 	what's already there. Use similar specs from shortly express.
 	Same for SQL.
 */
-describe('Mongo DB', function() {
-  describe('#indexOf()', function() {
-    it('contains a user table', function() {
-      var queryString = '';
-    });
-  });
-});

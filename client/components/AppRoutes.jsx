@@ -30,7 +30,7 @@ class AppRoutes extends React.Component {
     return (
       <div>
         <Nav user={this.state.user}/>
-        <Routes/>
+        <Routes signedIn={this.state.user}/>
       </div>
     )
   }
