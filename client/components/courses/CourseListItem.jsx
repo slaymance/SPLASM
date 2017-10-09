@@ -14,17 +14,17 @@ class CourseListItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    if(nextProps.course.usertocourse.status !== this.props.course.usertocourse.status) {
+    if(this.props.edit && !!(document.getElementById('course' + nextProps.course.id)) && nextProps.course.usertocourse.status !== this.props.course.usertocourse.status) {
         document.getElementById('course' + nextProps.course.id).value = nextProps.course.usertocourse.status;
     }
   }
 
   render() {
-    let status = (<div className="col-xs-12 text-center status">{this.props.course.usertocourse.status}</div>);
+    let status = (<div className="col-sm-12 col-sm-offset-0 col-xs-5 col-xs-offset-7 text-center">{this.props.course.usertocourse.status}</div>);
     let button = '';
     if (this.props.edit) {
       let statuses = ['100%', '75%', '50%', '25%', '0%'];
-      status = (<select onChange={this.updateStatus.bind(this)} className="col-xs-12" value={this.props.course.usertocourse.status}>
+      status = (<select onChange={this.updateStatus.bind(this)} className="col-sm-12 col-sm-offset-0 col-xs-5 col-xs-offset-7 text-center" value={this.props.course.usertocourse.status}>
         {statuses.map((status, i) => {
           return (<option key={i} value={status}>{status}</option>)
         })}
@@ -33,7 +33,7 @@ class CourseListItem extends React.Component {
     }
 
     return (<li id={'course' + this.props.course.id} className="col-xs-12 course">
-      <div className="col-sm-1 col-xs-12 thumbnail">
+      <div className="col-sm-1 col-sm-offset-0 col-xs-2 col-xs-offset-5 text-center thumbnail">
         {this.props.course.name[0]}
       </div>
       <div className="col-xs-12 col-sm-8">
@@ -43,7 +43,7 @@ class CourseListItem extends React.Component {
         <p>{this.props.course.parent}</p>
         {button}
       </div>
-      <div className="col-sm-3 col-xs-12 status">
+      <div className="col-sm-3 col-xs-12 status text-center" style={{padding: 0}}>
         <label>Status:</label>
         {status}
       </div>

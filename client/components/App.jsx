@@ -27,10 +27,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    let edit = this.props.location.pathname.startsWith('/profile/');
     this.fetchUser.call(this, this.props.match.params.username);
-    this.fetchAllCourses.call(this);
+    if (edit) {
+      this.fetchAllCourses.call(this);
+    }
     this.setState({
-      edit: this.props.location.pathname.startsWith('/profile/')
+      edit: edit
     });
   }
 
@@ -54,10 +57,19 @@ class App extends React.Component {
       url: `./api/courses/${courseName}`,
       type: type,
       success: (res) => {
-        let parsedRes = JSON.parse(res);
-        this.setState({
-          activeUser: parsedRes[0]
-        });
+        if (!res) {
+          this.setState({
+            redirect: true
+          });
+        } else {
+          let parsedRes = JSON.parse(res);
+          if (parsedRes[0].picture === null) {
+            parsedRes[0].picture = defaultProfPic;
+          }
+          this.setState({
+            activeUser: parsedRes[0]
+          });
+        }
       },
       error: () => {
         console.log('error adding course');
@@ -70,12 +82,12 @@ class App extends React.Component {
       url:`./api/${username}`,
       type: 'GET',
       success: (res) => {
-        let parsedRes = JSON.parse(res);
-        if (parsedRes.length === 0) {
+        if (!res) {
           this.setState({
             redirect: true
           });
         } else {
+          let parsedRes = JSON.parse(res);
           if (parsedRes[0].picture === null) {
             parsedRes[0].picture = defaultProfPic;
           }
@@ -92,9 +104,8 @@ class App extends React.Component {
   }
 
   render() {
-    const { redirect } = this.state;
-    if (redirect) {
-      return <Redirect to='/notfound'/>
+    if (this.state.redirect) {
+      return (<Redirect to='/notfound'/>);
     }
 
     return (

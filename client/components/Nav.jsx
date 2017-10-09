@@ -21,7 +21,6 @@ class Nav extends React.Component {
         this.setState({
           usersList: JSON.parse(res).map(obj => (obj.name))
         });
-        console.log(this.state.usersList);
       },
       error: () => {
         console.log('error fetching users from database');

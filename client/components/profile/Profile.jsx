@@ -40,9 +40,11 @@ class Profile extends React.Component {
     let editGithub = '';
     let editInterests = '';
     if(this.props.isCurrentUser) {
-      editPic = <Edit field="picture">
-        Add a picture here
-      </Edit>;
+      editPic = <div className="col-xs-3 col-xs-offset-1">
+        <Edit field="picture">
+          Add a picture here
+        </Edit>
+      </div>;
 
       editGithub = <Edit field="github">
         Add your GitHub username
@@ -53,35 +55,32 @@ class Profile extends React.Component {
       </Edit>
     }
 
-    return (<div style={{wordWrap: 'break-word'}}>
+    return (<div style={{wordWrap: 'break-word'}} className="profile">
+      {!this.props.isCurrentUser &&
+      (<button className="col-xs-10 col-xs-offset-1 addFriend" onClick={this.addFriend.bind(this)}>
+        Add Friend
+      </button>)
+      }
       <div>
-        <img src={this.props.user.picture} className="col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1"/>
         {editPic}
+        <img src={this.props.user.picture} className="col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1"/>
       </div>
       <div className="col-xs-12">
-        <h3>{this.props.user.name}</h3>
-        <div className="profileItem">
-          Member since: {[this.props.user.createdAt.slice(5, 10), this.props.user.createdAt.slice(0, 4)].join('-')}
+        <h3 className="text-center">{this.props.user.name}</h3>
+        <div className="profileItem col-xs-12 text-center">
+          <span className="col-xs-12">Member since:</span> {[this.props.user.createdAt.slice(5, 10), this.props.user.createdAt.slice(0, 4)].join('-')}
         </div>
-        {/* <div className="profileItem">
-          Interests: {this.props.user.interests.join(', ')}
-        </div> */}
-        <div className="profileItem">
-          Courses complete: {coursesComplete}
+        <div className="profileItem col-xs-12 text-center">
+          <span className="col-xs-12">Courses complete:</span> {coursesComplete}
         </div>
-        <div className="profileItem">
-          GitHub: {this.props.user.github}
+        <div className="profileItem col-xs-12 text-center">
+          <span className="col-xs-12">GitHub:</span> {this.props.user.github}
           {editGithub}
         </div>
-        <div className="profileItem">
-          Interests: {this.props.user.interests}
+        <div className="profileItem col-xs-12 text-center">
+          <span className="col-xs-12">Interests:</span> {this.props.user.interests}
           {editInterests}
         </div>
-        {!this.props.isCurrentUser &&
-        (<button onClick={this.addFriend.bind(this)}>
-          Add Friend
-        </button>)
-        }
       </div>
     </div>)
   }
