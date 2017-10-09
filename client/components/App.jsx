@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeUser: { id: null, name: '', courses: [], interests: [], picture: '', createdAt: '' },
+      activeUser: { id: null, name: '', courses: [], interests: '', picture: '', createdAt: '', github: '' },
       courses: [],
       redirect: false,
       edit: false
@@ -34,6 +34,14 @@ class App extends React.Component {
     }
     this.setState({
       edit: edit
+    });
+  }
+
+  editProfileItem(field, val) {
+    let user = this.state.activeUser;
+    user[field] = val;
+    this.setState({
+      activeUser: user
     });
   }
 
@@ -111,7 +119,7 @@ class App extends React.Component {
     return (
       <div className="container col-xs-12">
         <div className="col-sm-3 col-xs-12">
-          <Profile user={this.state.activeUser} isCurrentUser={this.state.edit} signedIn={this.props.signedIn}/>
+          <Profile editProfileItem={this.editProfileItem.bind(this)} user={this.state.activeUser} isCurrentUser={this.state.edit} signedIn={this.props.signedIn}/>
         </div>
         <div id="social" className="col-sm-6 col-xs-12">
           <Courses edit={this.state.edit} user={this.state.activeUser} allCourses={this.state.courses} addCourse={this.addCourse.bind(this)}/>
