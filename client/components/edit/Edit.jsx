@@ -23,7 +23,7 @@ class Edit extends React.Component {
 				change: change
 			},
 			success: (result) => {
-				console.log('successful PUT request');
+				this.props.editProfileItem(this.props.field, change);
 			},
 			error: (err) => {
 				console.error(err);

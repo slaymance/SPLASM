@@ -41,22 +41,22 @@ class Profile extends React.Component {
     let editInterests = '';
     if(this.props.isCurrentUser) {
       editPic = <div className="col-xs-3 col-xs-offset-1">
-        <Edit field="picture">
+        <Edit editProfileItem={this.props.editProfileItem} field="picture">
           Add a picture here
         </Edit>
       </div>;
 
-      editGithub = <Edit field="github">
+      editGithub = <Edit editProfileItem={this.props.editProfileItem} field="github">
         Add your GitHub username
       </Edit>
 
-      editInterests = <Edit field="interests">
+      editInterests = <Edit editProfileItem={this.props.editProfileItem} field="interests">
         What are your interests?
       </Edit>
     }
 
     return (<div style={{wordWrap: 'break-word'}} className="profile">
-      {!this.props.isCurrentUser &&
+      {this.props.signedIn && !this.props.isCurrentUser &&
       (<button className="col-xs-10 col-xs-offset-1 addFriend" onClick={this.addFriend.bind(this)}>
         Add Friend
       </button>)
@@ -68,17 +68,29 @@ class Profile extends React.Component {
       <div className="col-xs-12">
         <h3 className="text-center">{this.props.user.name}</h3>
         <div className="profileItem col-xs-12 text-center">
-          <span className="col-xs-12">Member since:</span> {[this.props.user.createdAt.slice(5, 10), this.props.user.createdAt.slice(0, 4)].join('-')}
+          <span className="col-xs-12">Member since:</span>
+          <div className="col-xs-12">
+            {[this.props.user.createdAt.slice(5, 10), this.props.user.createdAt.slice(0, 4)].join('-')}
+          </div>
         </div>
         <div className="profileItem col-xs-12 text-center">
-          <span className="col-xs-12">Courses complete:</span> {coursesComplete}
+          <span className="col-xs-12">Courses complete:</span>
+          <div className="col-xs-12">
+            {coursesComplete}
+          </div>
         </div>
         <div className="profileItem col-xs-12 text-center">
-          <span className="col-xs-12">GitHub:</span> {this.props.user.github}
+          <span className="col-xs-12">GitHub:</span>
+          <div className="col-xs-12">
+            {this.props.user.github}
+          </div>
           {editGithub}
         </div>
         <div className="profileItem col-xs-12 text-center">
-          <span className="col-xs-12">Interests:</span> {this.props.user.interests}
+          <span className="col-xs-12">Interests:</span>
+          <div className="col-xs-12">
+            {this.props.user.interests}
+          </div>
           {editInterests}
         </div>
       </div>
